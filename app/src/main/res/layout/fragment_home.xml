@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+    <TextView
+        android:id="@+id/txtCustomers"
+        android:layout_width="110dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="206dp"
+        android:text="CLIENTS"
+        android:textColor="@color/iconColor"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+        <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log Time"
+                android:textColor="@color/iconColor"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText,RtlHardcoded"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/txtCustomers"
+                android:layout_alignEnd="@+id/txtCustomers"
+                android:layout_marginTop="34dp"
+                app:layout_constraintTop_toBottomOf="@+id/txtCustomers"
+                android:layout_marginRight="84dp"
+                app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="84dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="@color/iconColor"
+            android:textSize="18sp"
+            android:layout_marginLeft="62dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="34dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtCustomers"
+            android:layout_marginStart="62dp" />
+
+        <!-- <TextView
+            android:id="@+id/textView12"
+            android:layout_width="92dp"
+            android:layout_height="32dp"
+            android:textColor="@color/iconColor"
+            android:text="7:31AM"
+            app:layout_constraintLeft_toRightOf="@+id/textView15"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="39dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="193dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="39dp"
+            android:textColor="@color/iconColor"
+            android:text="ALVAREZ, TRISHA DOMINYK"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <ImageView
+            android:id="@+id/btnNext"
+            android:layout_width="22dp"
+            android:layout_height="24dp"
+            app:srcCompat="@drawable/next"
+            android:layout_marginRight="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="95dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtCustomers" /> -->
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="ALVAREZ, TRISHA DOMINYK"
+        android:textColor="@color/iconColor"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="07:51"
+        android:textColor="@color/iconColor"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/textView38"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintRight_toLeftOf="@+id/btnNext"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/btnNext"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/next"
+        android:layout_marginTop="28dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <RelativeLayout
+        android:layout_width="380dp"
+        android:layout_height="170dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtCustomers"
+        app:layout_constraintVertical_bias="0.066"
+        android:id="@+id/relativeLayout2"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <TextView
+            android:id="@+id/boxCustomers"
+            android:layout_width="190dp"
+            android:layout_height="81dp"
+            android:background="@drawable/stats_customers_served"
+            android:text="CUSTOMERS SERVED TODAY"
+            android:textAlignment="center"
+            android:textColor="@color/iconColor"
+            android:textSize="12sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/boxWalkin"
+            android:layout_width="190dp"
+            android:layout_height="81dp"
+            android:background="@drawable/stats_walk_in_served"
+            android:text="WALK-IN SERVED"
+            android:textAlignment="center"
+            android:textColor="@color/iconColor"
+            android:textSize="12sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/boxAssigned"
+            android:layout_width="190dp"
+            android:layout_height="81dp"
+            android:background="@drawable/stats_assigned_classes"
+            android:text="ASSIGNED CLASSES"
+            android:textAlignment="center"
+            android:textColor="@color/rectAssignedColor"
+            android:textSize="12sp"
+            android:layout_below="@+id/boxCustomers"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/boxOverall"
+            android:layout_width="190dp"
+            android:layout_height="81dp"
+            android:background="@drawable/stats_overall"
+            android:text="OVERALL NUMBER OF STUDENTS"
+            android:textAlignment="center"
+            android:textColor="@color/iconColor"
+            android:textSize="12sp"
+            android:layout_below="@+id/boxWalkin"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/statsCustomer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/boxAssigned"
+            android:layout_marginBottom="28dp"
+            android:layout_marginEnd="86dp"
+            android:layout_marginRight="86dp"
+            android:layout_toLeftOf="@+id/boxWalkin"
+            android:layout_toStartOf="@+id/boxWalkin"
+            android:text="50"
+            android:textAlignment="center"
+            android:textColor="@color/iconColor"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/statsOverall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/boxOverall"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="26dp"
+            android:layout_marginEnd="84dp"
+            android:layout_marginRight="84dp"
+            android:text="32"
+            android:textColor="@color/iconColor"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/statsWalkIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/statsOverall"
+            android:layout_alignStart="@+id/statsOverall"
+            android:layout_alignTop="@+id/statsCustomer"
+            android:text="30"
+            android:textColor="@color/iconColor"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/statsAssigned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/statsOverall"
+            android:layout_alignLeft="@+id/statsCustomer"
+            android:layout_alignStart="@+id/statsCustomer"
+            android:text="6"
+            android:textColor="@color/backgroundColor"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

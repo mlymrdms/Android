@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="570dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Details"
+                android:textColor="@color/colorGray"
+                android:textSize="24sp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="318dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="32dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/hintName"
+                android:textColorHint="@color/colorGray"
+                android:backgroundTint="@color/colorGray"
+                android:textColor="@color/colorGray"
+                android:textColorHighlight="@color/rectCustomer"
+                android:textCursorDrawable="@color/buttonColor"
+                android:layout_below="@+id/textView2"
+                android:layout_alignLeft="@+id/saveRoutine"
+                android:layout_alignStart="@+id/saveRoutine" />
+
+            <Spinner
+                android:id="@+id/spnType"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="@color/colorGray"
+                android:entries="@array/types"
+                android:layout_below="@+id/edtName"
+                android:layout_alignLeft="@+id/edtName"
+                android:layout_alignStart="@+id/edtName"
+                android:layout_alignRight="@+id/edtName"
+                android:layout_alignEnd="@+id/edtName" />
+
+            <Spinner
+                android:id="@+id/spnDifficulty"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/colorGray"
+                android:entries="@array/difficulty"
+                android:layout_below="@+id/spnType"
+                android:layout_alignLeft="@+id/spnType"
+                android:layout_alignStart="@+id/spnType"
+                android:layout_alignRight="@+id/spnType"
+                android:layout_alignEnd="@+id/spnType" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                android:text="Activities"
+                android:textColor="@color/colorGray"
+                android:textSize="24sp"
+                android:layout_below="@+id/spnDifficulty"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:id="@+id/edtAct"
+                android:layout_width="318dp"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:layout_marginTop="32dp"
+                android:hint="@string/hintAct"
+                android:textColor="@color/colorGray"
+                android:backgroundTint="@color/colorGray"
+                android:textColorHint="@color/colorGray"
+                android:textColorHighlight="@color/rectCustomer"
+                android:textCursorDrawable="@color/buttonColor"
+                android:layout_below="@+id/textView8"
+                android:layout_alignLeft="@+id/spnDifficulty"
+                android:layout_alignStart="@+id/spnDifficulty" />
+
+            <EditText
+                android:id="@+id/edtDuration"
+                android:layout_width="318dp"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:layout_marginTop="11dp"
+                android:hint="@string/hintDuration"
+                android:textColor="@color/colorGray"
+                android:backgroundTint="@color/colorGray"
+                android:textColorHint="@color/colorGray"
+                android:textColorHighlight="@color/rectCustomer"
+                android:textCursorDrawable="@color/buttonColor"
+                android:layout_below="@+id/edtAct"
+                android:layout_alignLeft="@+id/edtAct"
+                android:layout_alignStart="@+id/edtAct" />
+
+            <EditText
+                android:id="@+id/edtSets"
+                android:layout_width="318dp"
+                android:layout_height="44dp"
+                android:ems="10"
+                android:layout_marginTop="11dp"
+                android:hint="@string/hintSets"
+                android:textColor="@color/colorGray"
+                android:backgroundTint="@color/colorGray"
+                android:textColorHint="@color/colorGray"
+                android:textColorHighlight="@color/rectCustomer"
+                android:textCursorDrawable="@color/buttonColor"
+                android:layout_below="@+id/edtDuration"
+                android:layout_alignLeft="@+id/edtDuration"
+                android:layout_alignStart="@+id/edtDuration" />
+
+            <Button
+                android:id="@+id/saveRoutine"
+                android:layout_width="318dp"
+                android:layout_height="44dp"
+                android:text="@string/btnSave"
+                android:textColor="@color/iconColor"
+                android:backgroundTint="@color/buttonColor"
+                android:layout_marginBottom="16dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </RelativeLayout>
+
+</ScrollView>

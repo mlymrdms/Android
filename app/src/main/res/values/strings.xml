@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">6100 Coach</string>
+    <string name="title_home">Home</string>
+    <string name="title_profile_classes">Profile</string>
+    <string name="title_search">Search</string>
+    <string name="title_workout">Workout Plans</string>
+    <string name="header_home">HOME</string>
+    <string name="header_profile">PROFILE</string>
+    <string name="header_classes">CLASSES</string>
+    <string name="header_workout">WORKOUT PLANS</string>
+    <string name="nav_home">home</string>
+    <string name="nav_profile">profile</string>
+    <string name="nav_classes">classes</string>
+    <string name="nav_workout">workout plan</string>
+    <string name="manage_workout">MANAGE WORKOUTS</string>
+    <string name="add_routine">ADD ROUTINE</string>
+    <string name="ADD">ADD</string>
+    <string name="info">Information</string>
+    <string name="basicinfo">Basic Info</string>
+    <string name="classes">Classes</string>
+    <string name="icon_add">add</string>
+    <string name="icon_gear">settings</string>
+    <string name="icon_next">next</string>
+    <string name="rdoStudents">Students</string>
+    <string name="rdoWorkoutPlans">Workout Plans</string>
+    <string name="hintSearch"><i>search</i></string>
+    <string name="hintName"><i>name</i></string>
+    <string name="hintType"><i>type</i></string>
+    <string name="hintDifficulty"><i>difficulty</i></string>
+    <string name="hintAct"><i>activity name</i></string>
+    <string name="hintDuration"><i>duration</i></string>
+    <string name="hintSets"><i>sets</i></string>
+    <string name="btnSave">SAVE</string>
+    <string name="hintFName"><i>first name</i></string>
+    <string name="hintLName"><i>last name</i></string>
+    <string name="hintGender"><i>gender</i></string>
+    <string name="hintNumber"><i>contact number</i></string>
+    <string name="hintEmail"><i>email</i></string>
+    <string-array name="types">
+        <item>SELECT TYPE</item>
+        <item>Boxing</item>
+        <item>Muay Thai</item>
+        <item>Jiu Jitsu</item>
+    </string-array>
+    <string-array name="difficulty">
+        <item>SELECT DIFFICULTY</item>
+        <item>Easy</item>
+        <item>Moderate</item>
+        <item>Hard</item>
+    </string-array>
+    <string-array name="progressMonth">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    <string-array name="progressYear">
+        <item>2017</item>
+        <item>2016</item>
+        <item>2015</item>
+        <item>2014</item>
+    </string-array>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="promptemail"><i>Email</i></string>
+    <string name="prompt_password"><i>Password</i></string>
+    <string name="sign_in_button">Sign in</string>
+
+</resources>

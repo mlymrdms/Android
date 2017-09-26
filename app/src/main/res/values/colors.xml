@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navColor">#be2941</color>
+    <color name="buttonColor">#c72645</color>
+    <color name="statusColor">#2b2831</color>
+    <color name="headerColor">#312c36</color>
+    <color name="backgroundColor">#333333</color>
+    <color name="iconColor">#FFF</color>
+    <color name="colorGray">#cbcbcb</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="rectCustomer">#666666</color>
+    <color name="rectWalkin">#d34253</color>
+    <color name="rectAssigned">#CCCCCC</color>
+    <color name="rectOverall">#454545</color>
+    <color name="rectAssignedColor">#343434</color>
+    <color name="rectInformation">#444444</color>
+</resources>
