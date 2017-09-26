@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+//        navigation.enable
         Log.d("Main Activity Pref", id);
     }
 

@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -25,7 +27,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
@@ -37,7 +41,10 @@ public class CoachClasses extends Fragment {
     ImageView btnNext;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+    ListView listView;
     RequestQueue requestQueue;
+    ArrayList<String> list;
+    ArrayAdapter<String> adapter;
 //    RecyclerView recyclerView;
 
     public static final String PREFS_NAME = "sharedPref";
@@ -47,18 +54,15 @@ public class CoachClasses extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_coach_classes, container, false);
 
-        btnNext = (ImageView) view.findViewById(R.id.btnNext);
+        list = new ArrayList<>();
+
+        listView = (ListView) view.findViewById(R.id.listView);
 
         pref = this.getActivity().getSharedPreferences("sharedPref", MODE_PRIVATE);
-        editor = pref.edit();
+//        editor = pref.edit();
 
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openClasses = new Intent(getActivity(), ClassesActivity.class);
-                startActivity(openClasses);
-            }
-        });
+        adapter = new ArrayAdapter<>(CoachClasses.this.getActivity(), android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(adapter);
 
         requestQueue = Volley.newRequestQueue(CoachClasses.this.getActivity());
 
@@ -79,7 +83,7 @@ public class CoachClasses extends Fragment {
             /*new MainActivity.JSONParser().execute("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson");*/
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://192.168.43.144/capstone_main/app/coach/profile.php?mod=CLASSES&id=" + id;
+            String temp = "http://192.168.42.213/capstone_main/app/coach/profile.php?mod=CLASSES&id=" + id;
             checkUser(temp);
 //            new LoginActivity.JSONParser().execute("http://192.168.8.101/capstone_main/app/coach/login.php" + "?email=" + email + "&password=" + password);
         }
@@ -112,7 +116,8 @@ public class CoachClasses extends Fragment {
                                 Log.d("CLASS ID: ", clsID);
                                 Log.d("CLASS NAME: ", clsName);
 
-//                                classList.add(new CClasses(clsID, clsName));
+                                list.add("TEST");
+                                adapter.notifyDataSetChanged();
                             }
 //                            ClassAdapter adapter = new ClassAdapter(CoachClasses.this, classList);
 //                            recyclerView.setAdapter(adapter);
