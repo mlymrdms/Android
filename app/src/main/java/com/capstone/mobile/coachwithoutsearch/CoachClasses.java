@@ -38,7 +38,6 @@ public class CoachClasses extends Fragment {
 
     ImageView btnNext;
     SharedPreferences pref;
-    SharedPreferences.Editor editor;
     ListView listView;
     RequestQueue requestQueue;
     ArrayList<String> list;
@@ -63,8 +62,10 @@ public class CoachClasses extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int ClassID = parent.getId();
                 String ClassName = (String) parent.getItemAtPosition(position);
                 Intent item = new Intent(CoachClasses.this.getActivity(), ClassesActivity.class);
+                item.putExtra("ClassID", ClassID);
                 item.putExtra("ClassName", ClassName);
                 startActivity(item);
             }
@@ -77,7 +78,7 @@ public class CoachClasses extends Fragment {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://192.168.1.28/Capstone/app/coach/profile.php?mod=CLASSES&id=" + id;
+            String temp = "http://192.168.1.14/Capstone/app/coach/profile.php?mod=CLASSES&id=" + id;
             checkUser(temp);
         }
 
