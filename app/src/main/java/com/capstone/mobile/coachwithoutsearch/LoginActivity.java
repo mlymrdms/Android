@@ -43,16 +43,25 @@ public class LoginActivity extends AppCompatActivity {
         editor = pref.edit();
 
         Boolean login = pref.getBoolean("login", false);
+        String level = pref.getString("level", "COACH");
 //        String login = pref.getString("login","false");
 //        Log.d("PREFS",login);
 
-        if(!login){
-            Intent straight = new Intent(this, MainActivity.class);
-            startActivity(straight);
+        if(login){
+            //if coach level start main coach activity
+            if(level.equals("COACH")) {
+                Intent straight = new Intent(this, MainActivity.class);
+                startActivity(straight);
+            }
+            else {
+                //client activity
+                Intent client = new Intent(this, ClientMainActivity.class);
+                startActivity(client);
+            }
         }
         else{
             Intent loginpage = new Intent(this, LoginActivity.class);
-//            new Intent(this, LoginActivity.class);
+//          new Intent(this, LoginActivity.class);
         }
     }
 
@@ -71,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
             email = stfEmail.getText().toString();
             password = stfPassword.getText().toString();
 
-            String temp = "http://192.168.1.14/Capstone/app/coach/login.php" + "?email=" + email + "&password=" + password;
+            String temp = "http://192.168.1.15/Capstone/app/login.php" + "?email=" + email + "&password=" + password;
             checkUser(temp);
 //            new LoginActivity.JSONParser().execute("http://192.168.8.101/capstone_main/app/coach/login.php" + "?email=" + email + "&password=" + password);
         }
@@ -103,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("id", reader.getString("id"));
                             editor.putString("firstName", reader.getString("firstName"));
                             editor.putString("lastName", reader.getString("lastName"));
+                            editor.putString("level", reader.getString("lvl"));
                             editor.putBoolean("login", true);
                             editor.apply();
 
