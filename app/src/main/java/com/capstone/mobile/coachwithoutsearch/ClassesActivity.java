@@ -92,7 +92,7 @@ public class ClassesActivity extends AppCompatActivity {
                                 Log.d("MEM STATUS: ", memStatus);
                                 Log.d("VALID: ", valid);
                                 Log.d("SESSION REMAIN: ", sessionRemain);
-                                
+
                                 adapter.notifyDataSetChanged();
                             }
 
