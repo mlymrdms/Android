@@ -11,10 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,7 +29,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
@@ -37,7 +36,6 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class CoachClasses extends Fragment {
 
-    private TextView textview;
     ImageView btnNext;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -45,7 +43,6 @@ public class CoachClasses extends Fragment {
     RequestQueue requestQueue;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
-//    RecyclerView recyclerView;
 
     public static final String PREFS_NAME = "sharedPref";
 
@@ -59,33 +56,29 @@ public class CoachClasses extends Fragment {
         listView = (ListView) view.findViewById(R.id.listView);
 
         pref = this.getActivity().getSharedPreferences("sharedPref", MODE_PRIVATE);
-//        editor = pref.edit();
 
         adapter = new ArrayAdapter<>(CoachClasses.this.getActivity(), android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
 
-        requestQueue = Volley.newRequestQueue(CoachClasses.this.getActivity());
-
-        //for recyclerview
-//        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String ClassName = (String) parent.getItemAtPosition(position);
+                Intent item = new Intent(CoachClasses.this.getActivity(), ClassesActivity.class);
+                item.putExtra("ClassName", ClassName);
+                startActivity(item);
+            }
+        });
 
         String id = pref.getString("id", "0");
-
-        //textview = (TextView) view.findViewById(R.id.tvdata);
-
-        //String JsonURL = "http://192.168.8.101/capstone_main/app/coach/profile.php?mod=CLASSES&id=" + id;
 
         //check if network is available
         if(isNetworkAvailable()){
             //run AsyncTask JSONParser
-            /*new MainActivity.JSONParser().execute("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson");*/
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://192.168.1.15/capstone_main/app/coach/profile.php?mod=CLASSES&id=" + id;
+            String temp = "http://192.168.1.28/Capstone/app/coach/profile.php?mod=CLASSES&id=" + id;
             checkUser(temp);
-//            new LoginActivity.JSONParser().execute("http://192.168.8.101/capstone_main/app/coach/login.php" + "?email=" + email + "&password=" + password);
         }
 
         return view;
@@ -99,17 +92,14 @@ public class CoachClasses extends Fragment {
     }
 
     private void checkUser(String url) {
-        //final SharedPreferences.Editor editor = this.getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Log.d("CLASSES: ", response);
-//                        ArrayList<CClasses> classList = new ArrayList<CClasses>();
                         try {
                             JSONArray jarray = new JSONArray(response);
                             for(int i = 0; i < jarray.length(); i++){
-//                                HashMap<String, String> map = new HashMap<>();
                                 JSONObject obj = jarray.getJSONObject(i);
                                 String clsID = obj.getString("cls_id");
                                 String clsName = obj.getString("cls_name");
@@ -119,31 +109,6 @@ public class CoachClasses extends Fragment {
                                 list.add(clsName);
                                 adapter.notifyDataSetChanged();
                             }
-//                            ClassAdapter adapter = new ClassAdapter(CoachClasses.this, classList);
-//                            recyclerView.setAdapter(adapter);
-//                            JSONObject obj = jarray.getJSONObject(0);
-//                            String clsID = obj.getString("cls_id");
-//                            String clsName = obj.getString("cls_name");
-//                            Log.d("CLASS ID: ", clsID);
-//                            Log.d("CLASS NAME: ", clsName);
-//                            JSONObject reader = new JSONObject(response);
-//
-//                            for(int i = 0; i < reader.length(); i++) {
-//                                JSONObject read = reader.getJSONObject(i);
-//                            }
-//                            String staffFname = reader.getString("stf_firstname");
-//                            String staffLname = reader.getString("stf_lastname");
-//                            String staffContact = reader.getString("stf_contact");
-//                            String staffEmail = reader.getString("stf_email");
-//                            Log.d("STAFF FIRST NAME: ", reader.getString("stf_firstname"));
-//                            Log.d("STAFF LAST NAME: ", reader.getString("stf_lastname"));
-//                            Log.d("STAFF EMAIL: ", reader.getString("stf_email"));
-//                            Log.d("STAFF CONTACT: ", reader.getString("stf_contact"));
-
-//                            coachFName.setText(staffFname);
-//                            coachLName.setText(staffLname);
-//                            coachEmail.setText(staffEmail);
-//                            coachContact.setText(staffContact);
 
                         } catch (JSONException e) {
                             e.printStackTrace();

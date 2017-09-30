@@ -105,7 +105,7 @@ public class ProfileFragment extends Fragment {
             /*new MainActivity.JSONParser().execute("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson");*/
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://192.168.1.15/capstone_main/app/coach/profile.php?mod=DETAILS&id=" + id;
+            String temp = "http://192.168.1.28/Capstone/app/coach/profile.php?mod=DETAILS&id=" + id;
             checkUser(temp);
 //            new LoginActivity.JSONParser().execute("http://192.168.8.101/capstone_main/app/coach/login.php" + "?email=" + email + "&password=" + password);
         }

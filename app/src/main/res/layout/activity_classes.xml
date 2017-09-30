@@ -9,9 +9,9 @@
     android:background="@color/backgroundColor">
 
     <TextView
-        android:id="@+id/txtCustomers"
-        android:layout_width="202dp"
-        android:layout_height="25dp"
+        android:id="@+id/txtClassName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="8dp"
@@ -20,13 +20,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
         android:text="NAME OF CLASS"
+        android:textAlignment="center"
         android:textColor="@color/iconColor"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.566" />
+        tools:layout_editor_absoluteY="32dp" />
 
     <TextView
         android:id="@+id/textView16"
@@ -39,7 +41,9 @@
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+        app:layout_constraintTop_toBottomOf="@+id/textView40"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/textView40"
@@ -51,7 +55,8 @@
         android:layout_marginLeft="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="93dp" />
+        android:layout_marginTop="93dp"
+        android:layout_marginStart="20dp" />
 
     <TextView
         android:id="@+id/textView41"
@@ -63,7 +68,8 @@
         android:textStyle="bold|italic"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/textView40"
-        android:layout_marginLeft="45dp" />
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp" />
 
     <TextView
         android:id="@+id/textView42"
@@ -75,7 +81,8 @@
         android:textStyle="bold|italic"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/textView41"
-        android:layout_marginLeft="45dp" />
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp" />
 
     <TextView
         android:id="@+id/textView43"
@@ -87,6 +94,7 @@
         android:textStyle="bold|italic"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/textView42"
-        android:layout_marginLeft="45dp" />
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp" />
 
 </android.support.constraint.ConstraintLayout>
