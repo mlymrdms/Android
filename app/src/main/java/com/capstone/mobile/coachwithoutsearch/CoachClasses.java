@@ -37,7 +37,6 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class CoachClasses extends Fragment {
 
-    ImageView btnNext;
     SharedPreferences pref;
     ListView listView;
     RequestQueue requestQueue;
@@ -68,10 +67,7 @@ public class CoachClasses extends Fragment {
                 String ClassID = (String) id_list.get(position);
                 String ClassName = (String) parent.getItemAtPosition(position);
                 Intent item = new Intent(CoachClasses.this.getActivity(), ClassesActivity.class);
-//                Bundle bundle = new Bundle();
                 Log.d("ID:", String.valueOf(ClassID));
-//                bundle.putString("ClassName", ClassName);
-//                item.putExtras(bundle);
                 item.putExtra("ClassID", ClassID);
                 item.putExtra("ClassName", ClassName);
                 startActivity(item);
@@ -115,7 +111,6 @@ public class CoachClasses extends Fragment {
                                 Log.d("CLASS NAME: ", clsName);
 
                                 id_list.add(clsID);
-
                                 list.add(clsName);
                                 adapter.notifyDataSetChanged();
                             }

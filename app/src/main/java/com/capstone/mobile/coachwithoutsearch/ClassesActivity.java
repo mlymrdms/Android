@@ -30,7 +30,6 @@ import java.util.Map;
 
 public class ClassesActivity extends AppCompatActivity {
 
-    SharedPreferences pref;
     String clsCustName, clsMemStatus, clsValid, clsSessions;
     TextView ClassName;
     ListView classList;

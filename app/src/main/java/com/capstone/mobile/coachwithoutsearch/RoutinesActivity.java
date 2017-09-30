@@ -1,13 +1,13 @@
 package com.capstone.mobile.coachwithoutsearch;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class BMTTActivity extends AppCompatActivity {
+public class RoutinesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bmtt2);
+        setContentView(R.layout.activity_routines);
     }
 }
