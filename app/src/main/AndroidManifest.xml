@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".ClientMainActivity" />
         <activity android:name=".AddRoutineActivity" />
         <activity android:name=".CustomerProfile" />
         <activity android:name=".CoachID" />
@@ -34,7 +35,8 @@
         <activity android:name=".MTTRActivity" />
         <activity android:name=".MLBRActivity" />
         <activity android:name=".CBRActivity" />
-        <activity android:name=".ClassesActivity"></activity>
+        <activity android:name=".ClassesActivity" />
+        <activity android:name=".WorkoutsActivity" />
     </application>
 
 </manifest>

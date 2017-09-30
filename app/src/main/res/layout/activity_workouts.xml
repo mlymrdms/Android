@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context="com.capstone.mobile.coachwithoutsearch.WorkoutsActivity">
+
+    <FrameLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WORKOUTS"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/red"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="60dp"
+                android:text="Beginner Muay Thai"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="78dp"
+                android:text="Date: September 15, 2017"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="95dp"
+                android:elevation="1dp"
+                android:text="Class: Muay Thai"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="110dp"
+                android:elevation="1dp"
+                android:text="Coach: Adrian Hillana"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="125dp"
+                android:elevation="1dp"
+                android:text="Accomplishment: 9/10"
+                android:textColor="@color/white" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="80dp"
+                android:background="@color/gray"
+                android:backgroundTint="@color/gray"
+                app:srcCompat="@drawable/checklist_icon" />
+
+        </RelativeLayout>
+
+
+
+    </FrameLayout>
+</android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>

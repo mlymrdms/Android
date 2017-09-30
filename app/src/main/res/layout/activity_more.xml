@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context="com.capstone.mobile.coachwithoutsearch.MoreActivity">
+
+    <FrameLayout
+        android:layout_width="368dp"
+        android:layout_height="501dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/bt_profile"
+                android:layout_width="wrap_content"
+
+                android:layout_height="160dp"
+                android:layout_below="@+id/bt_tips"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/profile_icon"
+                android:drawablePadding="5dp"
+                android:text="PROFILE"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                android:text="Profile and membership"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:translationZ="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="19dp"
+                android:layout_above="@+id/bt_contact"
+                android:layout_alignEnd="@+id/bt_profile"
+                android:layout_marginBottom="50dp" />
+
+            <Button
+                android:id="@+id/bt_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="160dp"
+                android:layout_below="@+id/bt_profile"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/contact_icon"
+                android:drawablePadding="5dp"
+                android:text="CONTACT US"
+                android:textAlignment="center"
+                android:textColor="@color/red"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="42dp"
+                android:layout_marginLeft="100dp"
+                android:elevation="1dp"
+                android:text="Inquries? View contact info"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                tools:translationZ="@dimen/activity_horizontal_margin"
+                android:layout_alignBottom="@+id/bt_contact"
+                android:layout_alignEnd="@+id/textView21" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:layout_alignEnd="@+id/bt_tips"
+                android:layout_alignStart="@+id/bt_tips"
+                android:layout_below="@+id/textView19"
+                android:background="@color/lightgray" />
+
+            <TextView
+                android:id="@+id/textView80"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_above="@+id/bt_contact"
+                android:layout_alignEnd="@+id/bt_profile"
+                android:layout_alignStart="@+id/bt_profile"
+                android:background="@color/lightgray" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

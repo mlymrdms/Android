@@ -43,16 +43,38 @@ public class LoginActivity extends AppCompatActivity {
         editor = pref.edit();
 
         Boolean login = pref.getBoolean("login", false);
+        String level = pref.getString("level", "COACH");
 //        String login = pref.getString("login","false");
 //        Log.d("PREFS",login);
 
-        if(!login){
+        if(login){
+            //if coach level start main coach activity
+            /*if(level.equals("COACH")) {
+                Intent straight = new Intent(this, MainActivity.class);
+                startActivity(straight);
+            }
+            else {
+                //client activity
+                Intent client = new Intent(this, ClientMainActivity.class);
+                startActivity(client);
+            }*/
+            Log.d("DA LEVEL", level);
+            redirect(level);
+        }
+        else{
+            Intent loginpage = new Intent(this, LoginActivity.class);
+            new Intent(this, LoginActivity.class);
+        }
+    }
+
+    public void redirect(String level){
+        if(level == "COACH"){
             Intent straight = new Intent(this, MainActivity.class);
             startActivity(straight);
         }
         else{
-            Intent loginpage = new Intent(this, LoginActivity.class);
-//            new Intent(this, LoginActivity.class);
+            Intent client = new Intent(this, ClientMainActivity.class);
+            startActivity(client);
         }
     }
 
@@ -71,7 +93,11 @@ public class LoginActivity extends AppCompatActivity {
             email = stfEmail.getText().toString();
             password = stfPassword.getText().toString();
 
+<<<<<<< HEAD
             String temp = "http://192.168.43.144/Capstone/app/coach/login.php" + "?email=" + email + "&password=" + password;
+=======
+            String temp = "http://192.168.43.253/Capstone/app/login.php" + "?email=" + email + "&password=" + password;
+>>>>>>> 872ea3c23797184f5a18d035aa2006c3c13c29cb
             checkUser(temp);
 //            new LoginActivity.JSONParser().execute("http://192.168.8.101/capstone_main/app/coach/login.php" + "?email=" + email + "&password=" + password);
         }
@@ -103,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("id", reader.getString("id"));
                             editor.putString("firstName", reader.getString("firstName"));
                             editor.putString("lastName", reader.getString("lastName"));
+                            editor.putString("level", reader.getString("lvl"));
                             editor.putBoolean("login", true);
                             editor.apply();
 
