@@ -64,8 +64,8 @@ public class ProfileActivity extends AppCompatActivity {
     // Add Fragments to Tabs
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getSupportFragmentManager());
-        //adapter.addFragment(new MemDetails(), "Details");
-        //adapter.addFragment(new MemMembership(), "Membership");
+        adapter.addFragment(new MemDetails(), "Details");
+        adapter.addFragment(new MemMembership(), "Membership");
         viewPager.setAdapter(adapter);
     }
 }
