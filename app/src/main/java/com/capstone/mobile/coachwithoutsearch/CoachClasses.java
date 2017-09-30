@@ -29,6 +29,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
@@ -42,6 +43,7 @@ public class CoachClasses extends Fragment {
     RequestQueue requestQueue;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
+    ArrayList id_list;
 
     public static final String PREFS_NAME = "sharedPref";
 
@@ -51,6 +53,7 @@ public class CoachClasses extends Fragment {
         View view = inflater.inflate(R.layout.fragment_coach_classes, container, false);
 
         list = new ArrayList<>();
+        id_list = new ArrayList<>();
 
         listView = (ListView) view.findViewById(R.id.listView);
 
@@ -62,9 +65,13 @@ public class CoachClasses extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int ClassID = parent.getId();
+                String ClassID = (String) id_list.get(position);
                 String ClassName = (String) parent.getItemAtPosition(position);
                 Intent item = new Intent(CoachClasses.this.getActivity(), ClassesActivity.class);
+//                Bundle bundle = new Bundle();
+                Log.d("ID:", String.valueOf(ClassID));
+//                bundle.putString("ClassName", ClassName);
+//                item.putExtras(bundle);
                 item.putExtra("ClassID", ClassID);
                 item.putExtra("ClassName", ClassName);
                 startActivity(item);
@@ -106,6 +113,8 @@ public class CoachClasses extends Fragment {
                                 String clsName = obj.getString("cls_name");
                                 Log.d("CLASS ID: ", clsID);
                                 Log.d("CLASS NAME: ", clsName);
+
+                                id_list.add(clsID);
 
                                 list.add(clsName);
                                 adapter.notifyDataSetChanged();

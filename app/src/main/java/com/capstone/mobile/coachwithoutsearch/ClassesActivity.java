@@ -33,7 +33,7 @@ public class ClassesActivity extends AppCompatActivity {
     SharedPreferences pref;
     TextView ClassName;
     ListView classList;
-    ArrayList<String> items;
+    ArrayList<String> list;
     ArrayAdapter<String> adapter;
 
     @Override
@@ -44,20 +44,18 @@ public class ClassesActivity extends AppCompatActivity {
         ClassName = (TextView) findViewById(R.id.txtClassName);
         classList = (ListView) findViewById(R.id.classlist);
 
-        //pref = this.getSharedPreferences("sharedPref", MODE_PRIVATE);
-
-        items = new ArrayList<>();
+        list = new ArrayList<>();
         Intent name = getIntent();
-        int classid = name.getIntExtra("ClassID", 0);
+        String id = name.getStringExtra("ClassID");
         String classname = name.getStringExtra("ClassName");
 
-        //adapter = new ArrayAdapter<>(this, android.R.layout.activity_list_item, items);
+        adapter = new ArrayAdapter<>(this, android.R.layout.activity_list_item, list);
 
         ClassName.setText(classname);
-        //classList.setAdapter(adapter);
+        classList.setAdapter(adapter);
 
-//        String id = pref.getString("id", "0");
-        String id = String.valueOf(classid);
+        Log.d("clsID: ", id);
+        Log.d("clsNAME: ", classname);
 
         //check if network is available
         if (isNetworkAvailable()) {
@@ -94,11 +92,8 @@ public class ClassesActivity extends AppCompatActivity {
                                 Log.d("MEM STATUS: ", memStatus);
                                 Log.d("VALID: ", valid);
                                 Log.d("SESSION REMAIN: ", sessionRemain);
-
-//                                String result = custName + "\n" + memStatus + "\n" + valid + "\n" + sessionRemain;
-//                                String[] info = new String[]{result};
-//                                items.addAll(Arrays.asList(info));
-//                                adapter.notifyDataSetChanged();
+                                
+                                adapter.notifyDataSetChanged();
                             }
 
                         } catch (JSONException e) {
