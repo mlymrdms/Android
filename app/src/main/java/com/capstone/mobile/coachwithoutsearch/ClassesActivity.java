@@ -35,8 +35,6 @@ public class ClassesActivity extends AppCompatActivity {
     TextView ClassName;
     ListView classList;
     ArrayList<ClassList> classesList;
-//    ArrayList<String> list;
-//    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +44,15 @@ public class ClassesActivity extends AppCompatActivity {
         ClassName = (TextView) findViewById(R.id.txtClassName);
         classList = (ListView) findViewById(R.id.classlist);
 
-//        list = new ArrayList<>();
         classesList = new ArrayList<>();
         Intent name = getIntent();
         String id = name.getStringExtra("ClassID");
         String classname = name.getStringExtra("ClassName");
 
-//        adapter = new ArrayAdapter<>(this, android.R.layout.activity_list_item, list);
         ClassListAdapter adapter = new ClassListAdapter(this, R.layout.activity_classes_list, classesList);
         classList.setAdapter(adapter);
 
         ClassName.setText(classname);
-//        classList.setAdapter(adapter);
 
         Log.d("clsID: ", id);
         Log.d("clsNAME: ", classname);
@@ -99,7 +94,6 @@ public class ClassesActivity extends AppCompatActivity {
                                 Log.d("SESSION REMAIN: ", clsSessions);
 
                                 classesList.add(new ClassList(clsCustName, clsMemStatus, clsValid, clsSessions));
-//                                adapter.notifyDataSetChanged();
                             }
 
                         } catch (JSONException e) {
