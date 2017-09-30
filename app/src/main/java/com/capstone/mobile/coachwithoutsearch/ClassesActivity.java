@@ -31,10 +31,12 @@ import java.util.Map;
 public class ClassesActivity extends AppCompatActivity {
 
     SharedPreferences pref;
+    String clsCustName, clsMemStatus, clsValid, clsSessions;
     TextView ClassName;
     ListView classList;
-    ArrayList<String> list;
-    ArrayAdapter<String> adapter;
+    ArrayList<ClassList> classesList;
+//    ArrayList<String> list;
+//    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +46,18 @@ public class ClassesActivity extends AppCompatActivity {
         ClassName = (TextView) findViewById(R.id.txtClassName);
         classList = (ListView) findViewById(R.id.classlist);
 
-        list = new ArrayList<>();
+//        list = new ArrayList<>();
+        classesList = new ArrayList<>();
         Intent name = getIntent();
         String id = name.getStringExtra("ClassID");
         String classname = name.getStringExtra("ClassName");
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.activity_list_item, list);
+//        adapter = new ArrayAdapter<>(this, android.R.layout.activity_list_item, list);
+        ClassListAdapter adapter = new ClassListAdapter(this, R.layout.activity_classes_list, classesList);
+        classList.setAdapter(adapter);
 
         ClassName.setText(classname);
-        classList.setAdapter(adapter);
+//        classList.setAdapter(adapter);
 
         Log.d("clsID: ", id);
         Log.d("clsNAME: ", classname);
@@ -62,7 +67,7 @@ public class ClassesActivity extends AppCompatActivity {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://192.168.1.14/Capstone/app/coach/classlist.php?cls_id=" + id;
+            String temp = "http://192.168.43.144/Capstone/app/coach/classlist.php?cls_id=" + id;
             checkUser(temp);
         }
     }
@@ -84,16 +89,17 @@ public class ClassesActivity extends AppCompatActivity {
                             JSONArray jarray = new JSONArray(response);
                             for (int i = 0; i < jarray.length(); i++) {
                                 JSONObject obj = jarray.getJSONObject(i);
-                                String custName = obj.getString("cust_name");
-                                String memStatus = obj.getString("mem_status");
-                                String valid = obj.getString("valid");
-                                String sessionRemain = obj.getString("rec_session_remain");
-                                Log.d("CUST NAME: ", custName);
-                                Log.d("MEM STATUS: ", memStatus);
-                                Log.d("VALID: ", valid);
-                                Log.d("SESSION REMAIN: ", sessionRemain);
+                                String clsCustName = obj.getString("cust_name");
+                                String clsMemStatus = obj.getString("mem_status");
+                                String clsValid = obj.getString("valid");
+                                String clsSessions = obj.getString("rec_session_remain");
+                                Log.d("CUST NAME: ", clsCustName);
+                                Log.d("MEM STATUS: ", clsMemStatus);
+                                Log.d("VALID: ", clsValid);
+                                Log.d("SESSION REMAIN: ", clsSessions);
 
-                                adapter.notifyDataSetChanged();
+                                classesList.add(new ClassList(clsCustName, clsMemStatus, clsValid, clsSessions));
+//                                adapter.notifyDataSetChanged();
                             }
 
                         } catch (JSONException e) {
