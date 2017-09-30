@@ -27,7 +27,7 @@ public class ClientMainActivity extends AppCompatActivity {
                     ClientRoutinesActivity routinesActivity = new ClientRoutinesActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, routinesActivity).commit();
                     return true;
-                /*case R.id.navigation_progress:
+                case R.id.navigation_progress:
                     ProgressActivity progressActivity = new ProgressActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, progressActivity).commit();
                     return true;
@@ -36,10 +36,10 @@ public class ClientMainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, logsActivity).commit();
                     return true;
                 case R.id.navigation_bmi:
-                    BmiActivity bmiActivity= new BmiActivity();
+                    BmiActivity bmiActivity = new BmiActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, bmiActivity).commit();
                     return true;
-                case R.id.navigation_more:
+                /*case R.id.navigation_more:
                     MoreActivity moreActivity = new MoreActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, moreActivity).commit();
                     return true;*/
