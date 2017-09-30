@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_routines"
+        android:icon="@drawable/routines_white"
+        android:title="routines" />
+
+    <item
+        android:id="@+id/navigation_logs"
+        android:icon="@drawable/logs_white"
+        android:title="logs" />
+
+    <item
+        android:id="@+id/navigation_progress"
+        android:icon="@drawable/progress_white"
+        android:title="class" />
+
+    <item
+        android:id="@+id/navigation_bmi"
+        android:icon="@drawable/bmi_white"
+        android:title="BMI" />
+
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/bars_white"
+        android:title="more" />
+</menu>
