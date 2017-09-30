@@ -39,10 +39,10 @@ public class ClientMainActivity extends AppCompatActivity {
                     BmiActivity bmiActivity = new BmiActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, bmiActivity).commit();
                     return true;
-                /*case R.id.navigation_more:
+                case R.id.navigation_more:
                     MoreActivity moreActivity = new MoreActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, moreActivity).commit();
-                    return true;*/
+                    return true;
             }
             return false;
         }
