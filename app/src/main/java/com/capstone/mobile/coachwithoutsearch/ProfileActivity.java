@@ -28,8 +28,8 @@ public class ProfileActivity extends AppCompatActivity {
         setupViewPager(viewPager);
 
         //set tabs inside toolbar
-        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
+        //TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+        //tabs.setupWithViewPager(viewPager);
     }
 
     static class Adapter extends FragmentPagerAdapter {
