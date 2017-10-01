@@ -37,6 +37,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class WorkoutFragment extends Fragment {
 
     SharedPreferences pref;
+    ImageView btnAdd;
     ListView workoutList;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
@@ -52,9 +53,18 @@ public class WorkoutFragment extends Fragment {
         list = new ArrayList<>();
         id_list = new ArrayList<>();
 
+        btnAdd = (ImageView) view.findViewById(R.id.addButton);
         workoutList = (ListView) view.findViewById(R.id.workoutlist);
 
         pref = this.getActivity().getSharedPreferences("sharedPref", MODE_PRIVATE);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent addRoutine = new Intent(getActivity(), AddRoutineActivity.class);
+                startActivity(addRoutine);
+            }
+        });
 
         adapter = new ArrayAdapter<>(WorkoutFragment.this.getActivity(), android.R.layout.simple_list_item_1, list);
         workoutList.setAdapter(adapter);
