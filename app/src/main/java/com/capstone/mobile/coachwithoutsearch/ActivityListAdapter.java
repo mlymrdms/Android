@@ -22,7 +22,7 @@ public class ActivityListAdapter extends ArrayAdapter<ActivityList> {
         TextView actname, actsets;
     }
 
-    public ActivityListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<ActivityList> objects) {
+    public ActivityListAdapter(@NonNull RoutinesActivity context, @LayoutRes int resource, @NonNull List<ActivityList> objects) {
         super(context, resource, objects);
         this.cResource = resource;
     }
