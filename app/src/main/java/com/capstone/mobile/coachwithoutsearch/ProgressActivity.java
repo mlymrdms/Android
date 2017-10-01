@@ -35,15 +35,6 @@ public class ProgressActivity extends Fragment {
 
         view = inflater.inflate(R.layout.activity_progress, container, false);
 
-        bt_workout = (Button) view.findViewById(R.id.bt_workout);
-        bt_workout.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), WorkoutsActivity.class);
-                startActivity(intent);
-            }
-        });
-
         return view;
     }
 }

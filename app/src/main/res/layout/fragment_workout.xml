@@ -44,7 +44,7 @@
             android:layout_marginStart="187dp" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/avg_progress"
             android:layout_width="110dp"
             android:layout_height="25dp"
             android:layout_alignParentEnd="true"

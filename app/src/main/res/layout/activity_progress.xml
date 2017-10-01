@@ -4,52 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@color/white"
     tools:context="com.capstone.mobile.coachwithoutsearch.ProgressActivity">
 
     <FrameLayout
         android:layout_width="368dp"
         android:layout_height="501dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="6dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/bt_workout"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentStart="true"
-                android:background="@color/white"
-                android:text=" view workouts"
-                android:textAllCaps="false"
-                android:textColor="@color/red"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="23dp"
-                android:text="Current Class"
-                android:textColor="@color/red"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
             <TextView
                 android:id="@+id/textView36"
-                android:layout_width="300dp"
-                android:layout_height="250dp"
-                android:layout_below="@+id/textView"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="41dp"
-                android:background="@color/lightgray"/>
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="1dp"
+                android:background="@color/red" />
 
             <TextView
                 android:id="@+id/textView47"
@@ -58,9 +34,35 @@
                 android:layout_alignTop="@+id/textView36"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="23dp"
-                android:text="Beginner Muay Thai"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:text="Average Progress Rate"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/avg_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView47"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="0%"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/progresslist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView36"
+                android:background="@color/iconColor"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
         </RelativeLayout>
 
