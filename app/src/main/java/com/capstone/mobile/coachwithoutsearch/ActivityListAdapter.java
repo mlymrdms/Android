@@ -13,9 +13,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
+
 public class ActivityListAdapter extends ArrayAdapter<ActivityList> {
 
     int cResource;
+
+    static class ViewHolder {
+        TextView actname, actsets;
+    }
 
     public ActivityListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<ActivityList> objects) {
         super(context, resource, objects);
@@ -31,14 +36,22 @@ public class ActivityListAdapter extends ArrayAdapter<ActivityList> {
 
         ActivityList activityList = new ActivityList(actName, actSets);
 
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        convertView = inflater.inflate(cResource, parent, false);
+        ViewHolder holder;
 
-        TextView txtActName = (TextView) convertView.findViewById(R.id.txtActName);
-        TextView txtSets = (TextView) convertView.findViewById(R.id.txtSets);
+        if(convertView == null){
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            convertView = inflater.inflate(cResource, parent, false);
+            holder = new ViewHolder();
+            holder.actname = (TextView) convertView.findViewById(R.id.txtActName);
+            holder.actsets = (TextView) convertView.findViewById(R.id.txtSets);
 
-        txtActName.setText(actName);
-        txtSets.setText(actSets);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        holder.actname.setText(activityList.getActName());
+        holder.actsets.setText(activityList.getActSets());
 
         return convertView;
     }
