@@ -1,13 +1,11 @@
 package com.capstone.mobile.coachwithoutsearch;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,47 +19,44 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ClassesActivity extends AppCompatActivity {
+public class RoutinesActivity extends AppCompatActivity {
 
-    String clsCustName, clsMemStatus, clsValid, clsSessions;
-    TextView ClassName;
-    ListView classList;
-    ArrayList<ClassList> classesList;
+    String actName, actSets;
+    TextView WorkoutName;
+    ListView actList;
+    ArrayList<ActivityList> activityList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_classes);
+        setContentView(R.layout.activity_routines);
+        WorkoutName = (TextView) findViewById(R.id.txtWorkoutName);
+        actList = (ListView) findViewById(R.id.activitieslist);
 
-        ClassName = (TextView) findViewById(R.id.txtClassName);
-        classList = (ListView) findViewById(R.id.classlist);
-
-        classesList = new ArrayList<>();
+        activityList = new ArrayList<>();
         Intent name = getIntent();
-        String id = name.getStringExtra("ClassID");
-        String classname = name.getStringExtra("ClassName");
+        String id = name.getStringExtra("WrkID");
+        String workoutname = name.getStringExtra("WrkName");
 
-        ClassListAdapter adapter = new ClassListAdapter(this, R.layout.activity_classes_list, classesList);
-        classList.setAdapter(adapter);
+        ActivityListAdapter adapter = new ActivityListAdapter(this, R.layout.activity_routines_list, activityList);
+        actList.setAdapter(adapter);
 
-        ClassName.setText(classname);
+        WorkoutName.setText(workoutname);
 
-        Log.d("clsID: ", id);
-        Log.d("clsNAME: ", classname);
+        Log.d("wrkID: ", id);
+        Log.d("wrkNAME: ", workoutname);
 
         //check if network is available
         if (isNetworkAvailable()) {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/classlist.php?cls_id=" + id;
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/activity.php?id=" + id;
             checkUser(temp);
         }
     }
@@ -78,21 +73,17 @@ public class ClassesActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("CLASS LIST: ", response);
+                        Log.d("ACTIVITY LIST: ", response);
                         try {
                             JSONArray jarray = new JSONArray(response);
                             for (int i = 0; i < jarray.length(); i++) {
                                 JSONObject obj = jarray.getJSONObject(i);
-                                String clsCustName = obj.getString("cust_name");
-                                String clsMemStatus = obj.getString("mem_status");
-                                String clsValid = obj.getString("valid");
-                                String clsSessions = obj.getString("rec_session_remain");
-                                Log.d("CUST NAME: ", clsCustName);
-                                Log.d("MEM STATUS: ", clsMemStatus);
-                                Log.d("VALID: ", clsValid);
-                                Log.d("SESSION REMAIN: ", clsSessions);
+                                String activityName = obj.getString("act_name");
+                                String activitySets = obj.getString("wra_sets");
+                                Log.d("ACT NAME: ", activityName);
+                                Log.d("SETS: ", activitySets);
 
-                                classesList.add(new ClassList(clsCustName, clsMemStatus, clsValid, clsSessions));
+                                activityList.add(new ActivityList(activityName, activitySets));
                             }
 
                         } catch (JSONException e) {

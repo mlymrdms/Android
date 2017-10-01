@@ -93,7 +93,11 @@ public class LoginActivity extends AppCompatActivity {
             email = stfEmail.getText().toString();
             password = stfPassword.getText().toString();
 
+<<<<<<< HEAD
             String temp = "http://192.168.1.11/Capstone/app/login.php" + "?email=" + email + "&password=" + password;
+=======
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/login.php" + "?email=" + email + "&password=" + password;
+>>>>>>> bb108e47631ba430a1c4cd06562c64ed50113355
             checkUser(temp);
 //            new LoginActivity.JSONParser().execute("http://192.168.8.101/capstone_main/app/coach/login.php" + "?email=" + email + "&password=" + password);
         }
