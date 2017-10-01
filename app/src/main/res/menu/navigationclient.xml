@@ -3,17 +3,17 @@
     <item
         android:id="@+id/navigation_routines"
         android:icon="@drawable/routines_white"
-        android:title="routines" />
+        android:title="Workout" />
 
     <item
         android:id="@+id/navigation_logs"
         android:icon="@drawable/logs_white"
-        android:title="logs" />
+        android:title="Logs" />
 
     <item
         android:id="@+id/navigation_progress"
         android:icon="@drawable/progress_white"
-        android:title="class" />
+        android:title="Progress" />
 
     <item
         android:id="@+id/navigation_bmi"
@@ -23,5 +23,5 @@
     <item
         android:id="@+id/navigation_more"
         android:icon="@drawable/bars_white"
-        android:title="more" />
+        android:title="More" />
 </menu>
