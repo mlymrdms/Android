@@ -66,8 +66,8 @@ public class WorkoutFragment extends Fragment {
                 String WrkName = (String) parent.getItemAtPosition(position);
                 Intent item = new Intent(WorkoutFragment.this.getActivity(), RoutinesActivity.class);
                 Log.d("ID:", String.valueOf(WrkID));
-                item.putExtra("ClassID", WrkID);
-                item.putExtra("ClassName", WrkName);
+                item.putExtra("WrkID", WrkID);
+                item.putExtra("WrkName", WrkName);
                 startActivity(item);
             }
         });

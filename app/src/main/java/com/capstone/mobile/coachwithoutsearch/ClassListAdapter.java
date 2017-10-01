@@ -13,12 +13,11 @@ import java.util.ArrayList;
 
 public class ClassListAdapter extends ArrayAdapter<ClassList> {
 
-    private Context cContext;
+//    private Context cContext;
     int cResource;
 
     public ClassListAdapter(Context context, int resource, ArrayList<ClassList> objects) {
         super(context, resource, objects);
-        this.cContext = context;
         this.cResource = resource;
     }
 
@@ -33,7 +32,7 @@ public class ClassListAdapter extends ArrayAdapter<ClassList> {
 
         ClassList classList = new ClassList(clsCustName, clsMemStatus, clsValid, clsSessions);
 
-        LayoutInflater inflater = LayoutInflater.from(cContext);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         convertView = inflater.inflate(cResource, parent, false);
 
         TextView txtName = (TextView) convertView.findViewById(R.id.txtName);
