@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class ClientMainActivity extends AppCompatActivity {
+    private TextView headerName, coachName;
     SharedPreferences pref;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -56,6 +57,14 @@ public class ClientMainActivity extends AppCompatActivity {
         pref = getSharedPreferences("sharedPref", MODE_PRIVATE);
 
         String id = pref.getString("id", "0");
+        String firstName = pref.getString("firstName", "No name");
+        String lastName = pref.getString("lastName", "No name");
+
+        headerName = (TextView) findViewById(R.id.header_name);
+        coachName = (TextView) findViewById(R.id.coach_name);
+
+        headerName.setText(R.string.header_home);
+        coachName.setText(lastName + ", " + firstName);
 
         final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
