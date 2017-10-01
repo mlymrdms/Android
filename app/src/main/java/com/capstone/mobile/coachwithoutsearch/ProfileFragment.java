@@ -25,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -73,7 +74,15 @@ public class ProfileFragment extends Fragment {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String firstname = coachFName.getText().toString();
+                String lastname = coachLName.getText().toString();
+                String contactnumber = coachContact.getText().toString();
+                String email = coachEmail.getText().toString();
                 Intent editDetails = new Intent(getActivity(), CoachEdit.class);
+                editDetails.putExtra("firstname", firstname);
+                editDetails.putExtra("lastname", lastname);
+                editDetails.putExtra("contactnumber", contactnumber);
+                editDetails.putExtra("email", email);
                 startActivity(editDetails);
             }
         });
@@ -105,7 +114,7 @@ public class ProfileFragment extends Fragment {
             /*new MainActivity.JSONParser().execute("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson");*/
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://sixonezerozeromaf.000webhostapp.com/Capstone/app/coach/profile.php?mod=DETAILS&id=" + id;
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/profile.php?mod=DETAILS&id=" + id;
             checkUser(temp);
 //            new LoginActivity.JSONParser().execute("http://192.168.8.101/capstone_main/app/coach/login.php" + "?email=" + email + "&password=" + password);
         }
@@ -128,21 +137,23 @@ public class ProfileFragment extends Fragment {
                     public void onResponse(String response) {
 //                        Log.d("STAFF: ", response);
                         try {
-                            JSONObject reader = new JSONObject(response);
-                            String staffFname = reader.getString("stf_firstname");
-                            String staffLname = reader.getString("stf_lastname");
-                            String staffContact = reader.getString("stf_contact");
-                            String staffEmail = reader.getString("stf_email");
-                            Log.d("STAFF FIRST NAME: ", reader.getString("stf_firstname"));
-                            Log.d("STAFF LAST NAME: ", reader.getString("stf_lastname"));
-                            Log.d("STAFF EMAIL: ", reader.getString("stf_email"));
-                            Log.d("STAFF CONTACT: ", reader.getString("stf_contact"));
+                            JSONArray jarray = new JSONArray(response);
+                            for(int i = 0; i < jarray.length(); i++){
+                                JSONObject obj = jarray.getJSONObject(i);
+                                String staffFname = obj.getString("stf_firstname");
+                                String staffLname = obj.getString("stf_lastname");
+                                String staffContact = obj.getString("stf_contact");
+                                String staffEmail = obj.getString("stf_email");
+                                Log.d("STAFF FIRST NAME: ", obj.getString("stf_firstname"));
+                                Log.d("STAFF LAST NAME: ", obj.getString("stf_lastname"));
+                                Log.d("STAFF EMAIL: ", obj.getString("stf_email"));
+                                Log.d("STAFF CONTACT: ", obj.getString("stf_contact"));
 
-                            coachFName.setText(staffFname);
-                            coachLName.setText(staffLname);
-                            coachEmail.setText(staffEmail);
-                            coachContact.setText(staffContact);
-
+                                coachFName.setText(staffFname);
+                                coachLName.setText(staffLname);
+                                coachEmail.setText(staffEmail);
+                                coachContact.setText(staffContact);
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
