@@ -18,9 +18,9 @@ public class ActivityListAdapter extends ArrayAdapter<ActivityList> {
 
     int cResource;
 
-    static class ViewHolder {
-        TextView actname, actsets;
-    }
+//    static class ViewHolder {
+//        TextView actname, actsets;
+//    }
 
     public ActivityListAdapter(@NonNull RoutinesActivity context, @LayoutRes int resource, @NonNull List<ActivityList> objects) {
         super(context, resource, objects);
@@ -36,22 +36,31 @@ public class ActivityListAdapter extends ArrayAdapter<ActivityList> {
 
         ActivityList activityList = new ActivityList(actName, actSets);
 
-        ViewHolder holder;
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        convertView = inflater.inflate(cResource, parent, false);
 
-        if(convertView == null){
-            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-            convertView = inflater.inflate(cResource, parent, false);
-            holder = new ViewHolder();
-            holder.actname = (TextView) convertView.findViewById(R.id.txtActName);
-            holder.actsets = (TextView) convertView.findViewById(R.id.txtSets);
+        TextView actname = (TextView) convertView.findViewById(R.id.txtActName);
+        TextView actsets = (TextView) convertView.findViewById(R.id.txtSets);
 
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
+        actname.setText(actName);
+        actsets.setText(actSets);
 
-        holder.actname.setText(activityList.getActName());
-        holder.actsets.setText(activityList.getActSets());
+//        ViewHolder holder;
+//
+//        if(convertView == null){
+//            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+//            convertView = inflater.inflate(cResource, parent, false);
+//            holder = new ViewHolder();
+//            holder.actname = (TextView) convertView.findViewById(R.id.txtActName);
+//            holder.actsets = (TextView) convertView.findViewById(R.id.txtSets);
+//
+//            convertView.setTag(holder);
+//        } else {
+//            holder = (ViewHolder) convertView.getTag();
+//        }
+//
+//        holder.actname.setText(activityList.getActName());
+//        holder.actsets.setText(activityList.getActSets());
 
         return convertView;
     }

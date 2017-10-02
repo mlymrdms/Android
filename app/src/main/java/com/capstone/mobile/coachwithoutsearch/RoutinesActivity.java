@@ -56,7 +56,8 @@ public class RoutinesActivity extends AppCompatActivity {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/activity.php?id=" + id;
+//            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/activity.php?id=" + id;
+            String temp = "http://192.168.43.253/Capstone/app/coach/activity.php?id=" + id;
             checkUser(temp);
         }
     }

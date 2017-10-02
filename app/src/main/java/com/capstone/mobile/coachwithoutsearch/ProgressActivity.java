@@ -80,7 +80,7 @@ public class ProgressActivity extends Fragment {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/client/progress.php?id=" + id;
+            String temp = "http://192.168.1.7/Capstone/app/client/progress.php?id=" + id;
             checkUser(temp);
         }
 

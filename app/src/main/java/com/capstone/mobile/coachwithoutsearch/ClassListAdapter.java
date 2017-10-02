@@ -15,9 +15,9 @@ public class ClassListAdapter extends ArrayAdapter<ClassList> {
 
     int cResource;
 
-    static class ViewHolder {
-        TextView custname, memstatus, valid, sessions;
-    }
+//    static class ViewHolder {
+//        TextView custname, memstatus, valid, sessions;
+//    }
 
     public ClassListAdapter(Context context, int resource, ArrayList<ClassList> objects) {
         super(context, resource, objects);
@@ -35,27 +35,39 @@ public class ClassListAdapter extends ArrayAdapter<ClassList> {
 
         ClassList classList = new ClassList(clsCustName, clsMemStatus, clsValid, clsSessions);
 
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        convertView = inflater.inflate(cResource, parent, false);
 
-        ViewHolder holder;
+        TextView custname = (TextView) convertView.findViewById(R.id.txtName);
+        TextView memstatus = (TextView) convertView.findViewById(R.id.txtMembership);
+        TextView valid = (TextView) convertView.findViewById(R.id.txtValid);
+        TextView sessions = (TextView) convertView.findViewById(R.id.txtSessions);
 
-        if(convertView == null){
-            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-            convertView = inflater.inflate(cResource, parent, false);
-            holder = new ViewHolder();
-            holder.custname = (TextView) convertView.findViewById(R.id.txtName);
-            holder.memstatus = (TextView) convertView.findViewById(R.id.txtMembership);
-            holder.valid = (TextView) convertView.findViewById(R.id.txtValid);
-            holder.sessions = (TextView) convertView.findViewById(R.id.txtSessions);
+        custname.setText(clsCustName);
+        memstatus.setText(clsMemStatus);
+        valid.setText(clsValid);
+        sessions.setText(clsSessions);
 
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
-
-        holder.custname.setText(classList.getClsCustName());
-        holder.memstatus.setText(classList.getClsMemStatus());
-        holder.valid.setText(classList.getClsValid());
-        holder.sessions.setText(classList.getClsSessions());
+//        ViewHolder holder;
+//
+//        if(convertView == null){
+//            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+//            convertView = inflater.inflate(cResource, parent, false);
+//            holder = new ViewHolder();
+//            holder.custname = (TextView) convertView.findViewById(R.id.txtName);
+//            holder.memstatus = (TextView) convertView.findViewById(R.id.txtMembership);
+//            holder.valid = (TextView) convertView.findViewById(R.id.txtValid);
+//            holder.sessions = (TextView) convertView.findViewById(R.id.txtSessions);
+//
+//            convertView.setTag(holder);
+//        } else {
+//            holder = (ViewHolder) convertView.getTag();
+//        }
+//
+//        holder.custname.setText(classList.getClsCustName());
+//        holder.memstatus.setText(classList.getClsMemStatus());
+//        holder.valid.setText(classList.getClsValid());
+//        holder.sessions.setText(classList.getClsSessions());
 
         return convertView;
     }
