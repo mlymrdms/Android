@@ -70,7 +70,7 @@ public class ProgressActivity extends Fragment {
 
         pref = this.getActivity().getSharedPreferences("sharedPref", MODE_PRIVATE);
 
-        adapter = new ArrayAdapter<>(ProgressActivity.this.getActivity(), android.R.layout.simple_list_item_1, list);
+        adapter = new ArrayAdapter<>(ProgressActivity.this.getContext(), android.R.layout.simple_list_item_1, list);
         progressList.setAdapter(adapter);
 
         String id = pref.getString("id", "0");
@@ -80,7 +80,7 @@ public class ProgressActivity extends Fragment {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
-            String temp = "http://192.168.1.7/Capstone/app/client/progress.php?id=" + id;
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/client/progress.php?id=" + id;
             checkUser(temp);
         }
 
