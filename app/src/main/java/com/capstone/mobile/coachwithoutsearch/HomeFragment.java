@@ -35,11 +35,10 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class HomeFragment extends Fragment {
 
-//    private ImageView btnNext;
     SharedPreferences pref;
     ListView clientList;
-//    ArrayList<String> list;
-//    ArrayAdapter<String> adapter;
+    ArrayList<LogbookList> logbooklist;
+    LogbookListAdapter adapter;
 //    ArrayList id_list;
 
     public static final String PREFS_NAME = "sharedPref";
@@ -53,6 +52,10 @@ public class HomeFragment extends Fragment {
         clientList = (ListView) view.findViewById(R.id.logbook);
 
         pref = this.getActivity().getSharedPreferences("sharedPref", MODE_PRIVATE);
+        logbooklist = new ArrayList<>();
+
+        adapter = new LogbookListAdapter(HomeFragment.this.getContext(), R.layout.fragment_home_list, logbooklist);
+        clientList.setAdapter(adapter);
 //
 //        btnNext.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -102,6 +105,7 @@ public class HomeFragment extends Fragment {
                                 Log.d("FIRST NAME: ", custFirstName);
                                 Log.d("LAST NAME: ", custLastName);
 
+                                logbooklist.add(new LogbookList(custFirstName, custLastName, logTime));
 //                                id_list.add(wrkID);
 //                                list.add(wrkName);
 //                                adapter.notifyDataSetChanged();
@@ -110,6 +114,7 @@ public class HomeFragment extends Fragment {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        adapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
             @Override
