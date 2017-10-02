@@ -39,7 +39,7 @@ public class CustomerProfile extends AppCompatActivity {
 //        String customerFName = client.getStringExtra("ClientFName");
 
         custid.setText(customerID);
-        custname.setText(customerName);
+        custname.setText(customerName.toUpperCase());
 //        custlname.setText(customerLName);
 //        custfname.setText(customerFName);
     }

@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -69,10 +70,16 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String ClientID = (String) id_list.get(position);
 //                String ClientName = (String) parent.getItemAtPosition(position);
+                LogbookList custname = (LogbookList) parent.getItemAtPosition(position);
+                String clientname = custname.getCustfirstname() + " " + custname.getCustlastname();
+//                String ClientName = String.valueOf(custname);
+//                Toast.makeText(HomeFragment.this.getActivity(), "Name:\n" + logbookList.getCustlastname() + ", " +
+//                                logbookList.getCustfirstname(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(HomeFragment.this.getActivity(), "Name: " + clientname, Toast.LENGTH_SHORT).show();
                 Intent client = new Intent(HomeFragment.this.getActivity(), CustomerProfile.class);
-                Log.d("ClientID:", String.valueOf(ClientID));
+//                Log.d("ClientID:", String.valueOf(ClientID));
                 client.putExtra("ClientID", ClientID);
-//                client.putExtra("ClientName", ClientName);
+                client.putExtra("ClientName", clientname);
                 startActivity(client);
             }
         });

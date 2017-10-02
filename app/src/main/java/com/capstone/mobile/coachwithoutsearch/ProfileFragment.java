@@ -44,7 +44,7 @@ public class ProfileFragment extends Fragment {
     private ImageView btnID;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    String data = "";
+//    String data = "";
 
     public static final String PREFS_NAME = "sharedPref";
 
@@ -57,10 +57,11 @@ public class ProfileFragment extends Fragment {
         editor = pref.edit();
 
         String id = pref.getString("id", "0");
+//        Log.d("id: ", id);
         String firstName = pref.getString("firstName", "No name");
         String lastName = pref.getString("lastName", "No name");
 
-        coachID = (TextView) view.findViewById(R.id.custID);
+        coachID = (TextView) view.findViewById(R.id.coachProfID);
         coachNameHeader = (TextView) view.findViewById(R.id.coachProfName);
         coachFName = (TextView) view.findViewById(R.id.stfFName);
         coachLName = (TextView) view.findViewById(R.id.stfLName);
