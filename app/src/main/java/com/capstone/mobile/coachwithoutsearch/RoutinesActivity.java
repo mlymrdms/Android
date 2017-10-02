@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,6 +31,7 @@ public class RoutinesActivity extends AppCompatActivity {
     TextView WorkoutName;
     ListView actList;
     ArrayList<ActivityList> activityList;
+    ActivityListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,8 @@ public class RoutinesActivity extends AppCompatActivity {
         String id = name.getStringExtra("WrkID");
         String workoutname = name.getStringExtra("WrkName");
 
-        ActivityListAdapter adapter = new ActivityListAdapter(this, R.layout.activity_routines_list, activityList);
+
+        adapter = new ActivityListAdapter(this, R.layout.activity_routines_list, activityList);
         actList.setAdapter(adapter);
 
         WorkoutName.setText(workoutname);
@@ -56,8 +59,8 @@ public class RoutinesActivity extends AppCompatActivity {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
-//            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/activity.php?id=" + id;
-            String temp = "http://192.168.43.253/Capstone/app/coach/activity.php?id=" + id;
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/activity.php?id=" + id;
+//            String temp = "http://192.168.43.144/Capstone/app/coach/activity.php?id=" + id;
             checkUser(temp);
         }
     }
@@ -81,6 +84,7 @@ public class RoutinesActivity extends AppCompatActivity {
                                 JSONObject obj = jarray.getJSONObject(i);
                                 String activityName = obj.getString("act_name");
                                 String activitySets = obj.getString("wra_sets");
+//                                Toast.makeText(RoutinesActivity.this, obj.getString("act_name"), Toast.LENGTH_SHORT).show();
                                 Log.d("ACT NAME: ", activityName);
                                 Log.d("SETS: ", activitySets);
 
@@ -90,6 +94,7 @@ public class RoutinesActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        adapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
             @Override

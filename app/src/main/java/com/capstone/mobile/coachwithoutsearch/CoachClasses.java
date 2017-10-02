@@ -81,8 +81,8 @@ public class CoachClasses extends Fragment {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
-//            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/profile.php?mod=CLASSES&id=" + id;
-            String temp = "http://192.168.43.253/Capstone/app/coach/profile.php?mod=CLASSES&id=" + id;
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/profile.php?mod=CLASSES&id=" + id;
+//            String temp = "http://192.168.43.144/Capstone/app/coach/profile.php?mod=CLASSES&id=" + id;
             checkUser(temp);
         }
 
