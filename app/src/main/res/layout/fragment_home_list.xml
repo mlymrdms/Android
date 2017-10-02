@@ -12,13 +12,15 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView"
-        android:textColor="@color/backgroundColor"/>
+        android:textColor="@color/backgroundColor" />
 
     <TextView
         android:id="@+id/txtCustomerLog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:layout_weight="1"
         android:text="TextView"
-        android:textColor="@color/backgroundColor"/>
+        android:textAlignment="textEnd"
+        android:textColor="@color/backgroundColor" />
 </LinearLayout>

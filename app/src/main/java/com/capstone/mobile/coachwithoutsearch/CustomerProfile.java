@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class CustomerProfile extends AppCompatActivity {
 
     private Button btnViewWorkout;
+    TextView custid, custname;
+//    TextView custlname, custfname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +19,10 @@ public class CustomerProfile extends AppCompatActivity {
         setContentView(R.layout.activity_customer_profile);
 
         btnViewWorkout = (Button) findViewById(R.id.btnView);
+        custid = (TextView) findViewById(R.id.custID);
+        custname = (TextView) findViewById(R.id.custName);
+//        custlname = (TextView) findViewById(R.id.custLName);
+//        custfname = (TextView) findViewById(R.id.custFName);
 
         btnViewWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,5 +31,16 @@ public class CustomerProfile extends AppCompatActivity {
                 startActivity(viewWorkout);
             }
         });
+
+        Intent client = getIntent();
+        String customerID = client.getStringExtra("ClientID");
+        String customerName = client.getStringExtra("ClientName");
+//        String customerLName = client.getStringExtra("ClientLName");
+//        String customerFName = client.getStringExtra("ClientFName");
+
+        custid.setText(customerID);
+        custname.setText(customerName);
+//        custlname.setText(customerLName);
+//        custfname.setText(customerFName);
     }
 }

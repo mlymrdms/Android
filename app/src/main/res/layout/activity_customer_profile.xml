@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context="com.capstone.mobile.coach2.CustomerProfile">
+    tools:context="com.capstone.mobile.coachwithoutsearch.CustomerProfile">
 
 
         <TextView
@@ -43,42 +43,42 @@
             app:layout_constraintVertical_bias="0.0"
             android:layout_marginStart="16dp" />
 
-        <TextView
-            android:id="@+id/coachProfID"
-            android:layout_width="108dp"
-            android:layout_height="29dp"
-            android:layout_marginLeft="138dp"
-            android:layout_marginTop="37dp"
-            android:text="1420606"
-            android:textColor="@color/buttonColor"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/customerHeader"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="@+id/customerHeader"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginStart="138dp"
-            android:layout_marginEnd="8dp" />
+    <TextView
+        android:id="@+id/custLName"
+        android:layout_width="108dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="138dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="37dp"
+        android:text="1420606"
+        android:textAlignment="center"
+        android:textColor="@color/buttonColor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/customerHeader"
+        app:layout_constraintTop_toTopOf="@+id/customerHeader" />
 
-        <TextView
-            android:id="@+id/customerName"
-            android:layout_width="262dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="61dp"
-            android:layout_marginTop="29dp"
-            android:text="TRISHA DOMINYK ALVAREZ"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/coachProfID"
-            android:layout_marginRight="8dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginStart="61dp"
-            android:layout_marginEnd="8dp" />
+    <TextView
+        android:id="@+id/custName"
+        android:layout_width="262dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="29dp"
+        android:text="TRISHA DOMINYK ALVAREZ"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/custLName" />
 
     <TextView
         android:id="@+id/textView5"

@@ -29,9 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
@@ -62,7 +60,7 @@ public class ProfileFragment extends Fragment {
         String firstName = pref.getString("firstName", "No name");
         String lastName = pref.getString("lastName", "No name");
 
-        coachID = (TextView) view.findViewById(R.id.coachProfID);
+        coachID = (TextView) view.findViewById(R.id.custLName);
         coachNameHeader = (TextView) view.findViewById(R.id.coachProfName);
         coachFName = (TextView) view.findViewById(R.id.stfFName);
         coachLName = (TextView) view.findViewById(R.id.stfLName);
