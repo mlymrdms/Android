@@ -60,7 +60,7 @@ public class ProfileFragment extends Fragment {
         String firstName = pref.getString("firstName", "No name");
         String lastName = pref.getString("lastName", "No name");
 
-        coachID = (TextView) view.findViewById(R.id.custLName);
+        coachID = (TextView) view.findViewById(R.id.custID);
         coachNameHeader = (TextView) view.findViewById(R.id.coachProfName);
         coachFName = (TextView) view.findViewById(R.id.stfFName);
         coachLName = (TextView) view.findViewById(R.id.stfLName);
