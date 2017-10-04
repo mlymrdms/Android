@@ -1,8 +1,5 @@
 package com.capstone.mobile.coachwithoutsearch;
 
-/**
- * Created by Lenovo on 30/09/2017.
- */
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,22 +22,27 @@ public class ClientMainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_routines:
+                    headerName.setText(R.string.header_workout);
                     ClientRoutinesActivity routinesActivity = new ClientRoutinesActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, routinesActivity).commit();
                     return true;
                 case R.id.navigation_progress:
+                    headerName.setText(R.string.header_progress);
                     ProgressActivity progressActivity = new ProgressActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, progressActivity).commit();
                     return true;
                 case R.id.navigation_logs:
+                    headerName.setText(R.string.header_logs);
                     LogsActivity logsActivity = new LogsActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, logsActivity).commit();
                     return true;
                 case R.id.navigation_bmi:
+                    headerName.setText(R.string.header_bmi);
                     BmiActivity bmiActivity = new BmiActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, bmiActivity).commit();
                     return true;
                 case R.id.navigation_more:
+                    headerName.setText(R.string.header_more);
                     MoreActivity moreActivity = new MoreActivity();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, moreActivity).commit();
                     return true;
@@ -68,7 +70,7 @@ public class ClientMainActivity extends AppCompatActivity {
 
         final BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        BottomNavigationViewHelper.disableShiftMode(navigation);
         Log.d("Main Activity Pref", id);
     }
 }

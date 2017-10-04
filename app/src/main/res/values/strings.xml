@@ -7,7 +7,12 @@
     <string name="header_home">HOME</string>
     <string name="header_profile">PROFILE</string>
     <string name="header_classes">CLASSES</string>
-    <string name="header_workout">WORKOUT PLANS</string>
+    <string name="header_workoutplans">WORKOUT PLANS</string>
+    <string name="header_workout">WORKOUT</string>
+    <string name="header_logs">LOGS</string>
+    <string name="header_progress">PROGRESS</string>
+    <string name="header_bmi">BMI</string>
+    <string name="header_more">MORE</string>
     <string name="nav_home">home</string>
     <string name="nav_profile">profile</string>
     <string name="nav_classes">classes</string>

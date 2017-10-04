@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, classesFragment).commit();
                     return true;
                 case R.id.nav_workout:
-                    headerName.setText(R.string.header_workout);
+                    headerName.setText(R.string.header_workoutplans);
                     WorkoutFragment workoutFragment = new WorkoutFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment, workoutFragment).commit();
                     return true;

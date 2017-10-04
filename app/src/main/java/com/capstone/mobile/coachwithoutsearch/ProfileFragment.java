@@ -29,9 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
@@ -46,7 +44,7 @@ public class ProfileFragment extends Fragment {
     private ImageView btnID;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    String data = "";
+//    String data = "";
 
     public static final String PREFS_NAME = "sharedPref";
 
@@ -59,6 +57,7 @@ public class ProfileFragment extends Fragment {
         editor = pref.edit();
 
         String id = pref.getString("id", "0");
+//        Log.d("id: ", id);
         String firstName = pref.getString("firstName", "No name");
         String lastName = pref.getString("lastName", "No name");
 
@@ -114,8 +113,8 @@ public class ProfileFragment extends Fragment {
             /*new MainActivity.JSONParser().execute("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson");*/
             Log.d("is it connected?", "Yes it is");
 
-//            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/profile.php?mod=DETAILS&id=" + id;
-            String temp = "http://192.168.43.253/Capstone/app/coach/profile.php?mod=DETAILS&id=" + id;
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/profile.php?mod=DETAILS&id=" + id;
+//            String temp = "http://192.168.43.144/Capstone/app/coach/profile.php?mod=DETAILS&id=" + id;
             checkUser(temp);
 //            new LoginActivity.JSONParser().execute("http://192.168.8.101/capstone_main/app/coach/login.php" + "?email=" + email + "&password=" + password);
         }

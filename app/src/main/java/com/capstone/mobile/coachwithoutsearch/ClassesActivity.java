@@ -34,6 +34,7 @@ public class ClassesActivity extends AppCompatActivity {
     TextView ClassName;
     ListView classList;
     ArrayList<ClassList> classesList;
+    ClassListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class ClassesActivity extends AppCompatActivity {
         String id = name.getStringExtra("ClassID");
         String classname = name.getStringExtra("ClassName");
 
-        ClassListAdapter adapter = new ClassListAdapter(this, R.layout.activity_classes_list, classesList);
+        adapter = new ClassListAdapter(this, R.layout.activity_classes_list, classesList);
         classList.setAdapter(adapter);
 
         ClassName.setText(classname);
@@ -61,8 +62,8 @@ public class ClassesActivity extends AppCompatActivity {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
-//            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/classlist.php?cls_id=" + id;
-            String temp = "http://192.168.43.253/Capstone/app/coach/classlist.php?cls_id=" + id;
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/classlist.php?cls_id=" + id;
+//            String temp = "http://192.168.43.144/Capstone/app/coach/classlist.php?cls_id=" + id;
             checkUser(temp);
         }
     }
@@ -99,6 +100,7 @@ public class ClassesActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        adapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
             @Override
