@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class CustomerProfile extends AppCompatActivity {
 
     private Button btnViewWorkout;
-    TextView custid, custname;
+    TextView custid, custname, clsname;
 //    TextView custlname, custfname;
 
     @Override
@@ -21,6 +21,7 @@ public class CustomerProfile extends AppCompatActivity {
         btnViewWorkout = (Button) findViewById(R.id.btnView);
         custid = (TextView) findViewById(R.id.custID);
         custname = (TextView) findViewById(R.id.custName);
+        clsname = (TextView) findViewById(R.id.txtClsName);
 //        custlname = (TextView) findViewById(R.id.custLName);
 //        custfname = (TextView) findViewById(R.id.custFName);
 
@@ -35,11 +36,13 @@ public class CustomerProfile extends AppCompatActivity {
         Intent client = getIntent();
         String customerID = client.getStringExtra("ClientID");
         String customerName = client.getStringExtra("ClientName");
+        String customerClsName = client.getStringExtra("ClientClsName");
 //        String customerLName = client.getStringExtra("ClientLName");
 //        String customerFName = client.getStringExtra("ClientFName");
 
         custid.setText(customerID);
         custname.setText(customerName.toUpperCase());
+        clsname.setText(customerClsName);
 //        custlname.setText(customerLName);
 //        custfname.setText(customerFName);
     }

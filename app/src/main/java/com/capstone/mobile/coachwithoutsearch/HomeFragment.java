@@ -72,6 +72,8 @@ public class HomeFragment extends Fragment {
 //                String ClientName = (String) parent.getItemAtPosition(position);
                 LogbookList custname = (LogbookList) parent.getItemAtPosition(position);
                 String clientname = custname.getCustfirstname() + " " + custname.getCustlastname();
+                LogbookList custclsname = (LogbookList) parent.getItemAtPosition(position);
+                String clsname = custclsname.getCustclsname();
 //                String ClientName = String.valueOf(custname);
 //                Toast.makeText(HomeFragment.this.getActivity(), "Name:\n" + logbookList.getCustlastname() + ", " +
 //                                logbookList.getCustfirstname(), Toast.LENGTH_SHORT).show();
@@ -80,6 +82,7 @@ public class HomeFragment extends Fragment {
 //                Log.d("ClientID:", String.valueOf(ClientID));
                 client.putExtra("ClientID", ClientID);
                 client.putExtra("ClientName", clientname);
+                client.putExtra("ClientClsName", clsname);
                 startActivity(client);
             }
         });
@@ -143,10 +146,12 @@ public class HomeFragment extends Fragment {
                                 String logTime = obj.getString("log_timein");
                                 String custFirstName = obj.getString("cust_firstname");
                                 String custLastName = obj.getString("cust_lastname");
+                                String custClsName = obj.getString("cls_name");
                                 Log.d("LOG ID: ", logID);
                                 Log.d("LOG TIME: ", logTime);
                                 Log.d("FIRST NAME: ", custFirstName);
                                 Log.d("LAST NAME: ", custLastName);
+                                Log.d("CLASS NAME: ", custLastName);
 
 
 //                                Log.i("List check: ", "Client Name: " + custFirstName + ", " + custLastName + "\nTime-In: " + logTime);
@@ -154,7 +159,7 @@ public class HomeFragment extends Fragment {
 //                                String[] info = new String[]{result};
 //                                list.addAll(Arrays.asList(info));
                                 id_list.add(logID);
-                                logbooklist.add(new LogbookList(custFirstName, custLastName, logTime));
+                                logbooklist.add(new LogbookList(custFirstName, custLastName, logTime, custClsName));
 //                                list.add(wrkName);
 //                                adapter.notifyDataSetChanged();
                             }

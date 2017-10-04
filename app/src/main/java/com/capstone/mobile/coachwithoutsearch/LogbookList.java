@@ -3,12 +3,13 @@ package com.capstone.mobile.coachwithoutsearch;
 
 public class LogbookList {
 
-    String custfirstname, custlastname, custlog;
+    String custfirstname, custlastname, custlog, custclsname;
 
-    public LogbookList(String custfirstname, String custlastname, String custlog) {
+    public LogbookList(String custfirstname, String custlastname, String custlog, String custclsname) {
         this.custfirstname = custfirstname;
         this.custlastname = custlastname;
         this.custlog = custlog;
+        this.custclsname = custclsname;
     }
 
     public String getCustfirstname() {
@@ -33,5 +34,13 @@ public class LogbookList {
 
     public void setCustlog(String custlog) {
         this.custlog = custlog;
+    }
+
+    public String getCustclsname() {
+        return custclsname;
+    }
+
+    public void setCustclsname(String custclsname) {
+        this.custclsname = custclsname;
     }
 }
