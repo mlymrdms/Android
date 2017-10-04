@@ -69,11 +69,15 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String ClientID = (String) id_list.get(position);
-//                String ClientName = (String) parent.getItemAtPosition(position);
+
                 LogbookList custname = (LogbookList) parent.getItemAtPosition(position);
                 String clientname = custname.getCustfirstname() + " " + custname.getCustlastname();
+
                 LogbookList custclsname = (LogbookList) parent.getItemAtPosition(position);
                 String clsname = custclsname.getCustclsname();
+
+                LogbookList custsessionremain = (LogbookList) parent.getItemAtPosition(position);
+                String sessionremain = custsessionremain.getCustsessions();
 //                String ClientName = String.valueOf(custname);
 //                Toast.makeText(HomeFragment.this.getActivity(), "Name:\n" + logbookList.getCustlastname() + ", " +
 //                                logbookList.getCustfirstname(), Toast.LENGTH_SHORT).show();
@@ -83,6 +87,7 @@ public class HomeFragment extends Fragment {
                 client.putExtra("ClientID", ClientID);
                 client.putExtra("ClientName", clientname);
                 client.putExtra("ClientClsName", clsname);
+                client.putExtra("ClientSession", sessionremain);
                 startActivity(client);
             }
         });
@@ -147,11 +152,13 @@ public class HomeFragment extends Fragment {
                                 String custFirstName = obj.getString("cust_firstname");
                                 String custLastName = obj.getString("cust_lastname");
                                 String custClsName = obj.getString("cls_name");
+                                String custSessionRemain = obj.getString("rec_session_remain");
                                 Log.d("LOG ID: ", logID);
                                 Log.d("LOG TIME: ", logTime);
                                 Log.d("FIRST NAME: ", custFirstName);
                                 Log.d("LAST NAME: ", custLastName);
                                 Log.d("CLASS NAME: ", custLastName);
+                                Log.d("SESSIONS REMAINING: ", custSessionRemain);
 
 
 //                                Log.i("List check: ", "Client Name: " + custFirstName + ", " + custLastName + "\nTime-In: " + logTime);
@@ -159,7 +166,7 @@ public class HomeFragment extends Fragment {
 //                                String[] info = new String[]{result};
 //                                list.addAll(Arrays.asList(info));
                                 id_list.add(logID);
-                                logbooklist.add(new LogbookList(custFirstName, custLastName, logTime, custClsName));
+                                logbooklist.add(new LogbookList(custFirstName, custLastName, logTime, custClsName, custSessionRemain));
 //                                list.add(wrkName);
 //                                adapter.notifyDataSetChanged();
                             }

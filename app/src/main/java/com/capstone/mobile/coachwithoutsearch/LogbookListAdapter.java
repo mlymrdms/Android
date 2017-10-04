@@ -30,8 +30,9 @@ public class LogbookListAdapter extends ArrayAdapter<LogbookList>{
         String custLName = getItem(position).getCustlastname();
         String custLog = getItem(position).getCustlog();
         String custClsName = getItem(position).getCustclsname();
+        String custSession = getItem(position).getCustsessions();
 
-        LogbookList logbookList = new LogbookList(custFName, custLName, custLog, custClsName);
+        LogbookList logbookList = new LogbookList(custFName, custLName, custLog, custClsName, custSession);
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         convertView = inflater.inflate(cResource, parent, false);
