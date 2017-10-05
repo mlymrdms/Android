@@ -3,14 +3,16 @@ package com.capstone.mobile.coachwithoutsearch;
 
 public class LogbookList {
 
-    String custfirstname, custlastname, custlog, custclsname, custsessions;
+    String custfirstname, custlastname, custlog, custclsname, custsessions, wrkid;
 
-    public LogbookList(String custfirstname, String custlastname, String custlog, String custclsname, String custsessions) {
+    public LogbookList(String custfirstname, String custlastname, String custlog, String custclsname, String custsessions,
+                       String wrkid) {
         this.custfirstname = custfirstname;
         this.custlastname = custlastname;
         this.custlog = custlog;
         this.custclsname = custclsname;
         this.custsessions = custsessions;
+        this.wrkid = wrkid;
     }
 
     public String getCustfirstname() {
@@ -51,5 +53,13 @@ public class LogbookList {
 
     public void setCustclsname(String custclsname) {
         this.custclsname = custclsname;
+    }
+
+    public String getWrkid() {
+        return wrkid;
+    }
+
+    public void setWrkid(String wrkid) {
+        this.wrkid = wrkid;
     }
 }

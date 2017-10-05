@@ -11,6 +11,7 @@ public class CustomerProfile extends AppCompatActivity {
 
     private Button btnViewWorkout;
     TextView custid, custname, clsname, sessions;
+    String customerClsName, customerWrkID, customerFullName;
 //    TextView custlname, custfname;
 
     @Override
@@ -26,19 +27,14 @@ public class CustomerProfile extends AppCompatActivity {
 //        custlname = (TextView) findViewById(R.id.custLName);
 //        custfname = (TextView) findViewById(R.id.custFName);
 
-        btnViewWorkout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent viewWorkout = new Intent(CustomerProfile.this, CustomerViewWorkout.class);
-                startActivity(viewWorkout);
-            }
-        });
-
         Intent client = getIntent();
         String customerID = client.getStringExtra("ClientID");
         String customerName = client.getStringExtra("ClientName");
-        String customerClsName = client.getStringExtra("ClientClsName");
         String customerSessionRemain = client.getStringExtra("ClientSession");
+        customerClsName = client.getStringExtra("ClientClsName");
+        customerWrkID = client.getStringExtra("ClientWrkID");
+        customerFullName = client.getStringExtra("ClientFullName");
+
 //        String customerLName = client.getStringExtra("ClientLName");
 //        String customerFName = client.getStringExtra("ClientFName");
 
@@ -48,5 +44,16 @@ public class CustomerProfile extends AppCompatActivity {
         sessions.setText(customerSessionRemain);
 //        custlname.setText(customerLName);
 //        custfname.setText(customerFName);
+
+        btnViewWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewWorkout = new Intent(CustomerProfile.this, CustomerViewWorkout.class);
+                viewWorkout.putExtra("ClientClassName", customerClsName);
+                viewWorkout.putExtra("ClientWrkID", customerWrkID);
+                viewWorkout.putExtra("ClientFullName", customerFullName);
+                startActivity(viewWorkout);
+            }
+        });
     }
 }

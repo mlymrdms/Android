@@ -78,7 +78,13 @@ public class HomeFragment extends Fragment {
 
                 LogbookList custsessionremain = (LogbookList) parent.getItemAtPosition(position);
                 String sessionremain = custsessionremain.getCustsessions();
-//                String ClientName = String.valueOf(custname);
+
+                LogbookList custwrkid = (LogbookList) parent.getItemAtPosition(position);
+                String wrkid = custwrkid.getWrkid();
+
+                LogbookList custfullname = (LogbookList) parent.getItemAtPosition(position);
+                String clientfullname = custname.getCustlastname() + ", " + custname.getCustfirstname();
+//                String ClientFullName = String.valueOf(custname);
 //                Toast.makeText(HomeFragment.this.getActivity(), "Name:\n" + logbookList.getCustlastname() + ", " +
 //                                logbookList.getCustfirstname(), Toast.LENGTH_SHORT).show();
 //                Toast.makeText(HomeFragment.this.getActivity(), "Name: " + clientname, Toast.LENGTH_SHORT).show();
@@ -86,8 +92,11 @@ public class HomeFragment extends Fragment {
 //                Log.d("ClientID:", String.valueOf(ClientID));
                 client.putExtra("ClientID", ClientID);
                 client.putExtra("ClientName", clientname);
-                client.putExtra("ClientClsName", clsname);
+
                 client.putExtra("ClientSession", sessionremain);
+
+                client.putExtra("ClientWrkID", wrkid);
+                client.putExtra("ClientFullName", clientfullname);
                 startActivity(client);
             }
         });
@@ -148,12 +157,14 @@ public class HomeFragment extends Fragment {
                             for(int i = 0; i < jarray.length(); i++){
                                 JSONObject obj = jarray.getJSONObject(i);
                                 String logID = obj.getString("log_id");
+                                String wrkID = obj.getString("wrk_id");
                                 String logTime = obj.getString("log_timein");
                                 String custFirstName = obj.getString("cust_firstname");
                                 String custLastName = obj.getString("cust_lastname");
                                 String custClsName = obj.getString("cls_name");
                                 String custSessionRemain = obj.getString("rec_session_remain");
                                 Log.d("LOG ID: ", logID);
+                                Log.d("WORK ID: ", wrkID);
                                 Log.d("LOG TIME: ", logTime);
                                 Log.d("FIRST NAME: ", custFirstName);
                                 Log.d("LAST NAME: ", custLastName);
@@ -166,7 +177,8 @@ public class HomeFragment extends Fragment {
 //                                String[] info = new String[]{result};
 //                                list.addAll(Arrays.asList(info));
                                 id_list.add(logID);
-                                logbooklist.add(new LogbookList(custFirstName, custLastName, logTime, custClsName, custSessionRemain));
+                                logbooklist.add(new LogbookList(custFirstName, custLastName, logTime,
+                                        custClsName, custSessionRemain, wrkID));
 //                                list.add(wrkName);
 //                                adapter.notifyDataSetChanged();
                             }

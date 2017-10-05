@@ -18,40 +18,51 @@ public class MoreActivity extends Fragment{
     Button bt_tips, bt_profile, bt_contact;
 
 
-    public static MoreActivity newInstance() {
-        MoreActivity fragment = new MoreActivity();
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
+//    public static MoreActivity newInstance() {
+//        MoreActivity fragment = new MoreActivity();
+//        return fragment;
+//    }
+//
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_more, container, false);
 
-        bt_tips = (Button) view.findViewById(R.id.bt_tips);
+//        bt_tips = (Button) view.findViewById(R.id.bt_tips);
         bt_profile = (Button) view.findViewById(R.id.bt_profile);
         bt_contact = (Button) view.findViewById(R.id.bt_contact);
-        bt_profile.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
-            }
-        });
-        bt_contact.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ContactusActivity.class);
-                startActivity(intent);
-            }
-        });
+
+//        bt_profile.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent profile = new Intent(getActivity(), ProfileActivity.class);
+//                startActivity(profile);
+//            }
+//        });
+//        bt_contact.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent contact = new Intent(getActivity(), ContactusActivity.class);
+//                startActivity(contact);
+//            }
+//        });
 
         return view;
+    }
+
+    public void profile(View view){
+        Intent profile = new Intent(this.getActivity(), ProfileActivity.class);
+        startActivity(profile);
+    }
+
+    public void contact(View view){
+        Intent contact = new Intent(this.getActivity(), ContactusActivity.class);
+        startActivity(contact);
     }
 }

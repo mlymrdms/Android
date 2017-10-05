@@ -43,8 +43,10 @@ public class ProgressActivity extends Fragment {
     View view;
     SharedPreferences pref;
     ListView progressList;
-    ArrayList<String> list;
-    ArrayAdapter<String> adapter;
+    ArrayList<ProgressList> progressarraylist;
+    ProgressListAdapter adapter;
+//    ArrayList<String> list;
+//    ArrayAdapter<String> adapter;
     ArrayList proglist;
 
     public static ProgressActivity newInstance() {
@@ -64,13 +66,17 @@ public class ProgressActivity extends Fragment {
 
         view = inflater.inflate(R.layout.activity_progress, container, false);
 
-        list = new ArrayList<>();
-        proglist = new ArrayList<>();
+//        list = new ArrayList<>();
+
         progressList = (ListView) view.findViewById(R.id.progresslist);
+
+        progressarraylist = new ArrayList<>();
+        proglist = new ArrayList<>();
 
         pref = this.getActivity().getSharedPreferences("sharedPref", MODE_PRIVATE);
 
-        adapter = new ArrayAdapter<>(ProgressActivity.this.getContext(), android.R.layout.simple_list_item_1, list);
+        adapter = new ProgressListAdapter(ProgressActivity.this.getActivity(), R.layout.activity_progress_list, progressarraylist);
+//        adapter = new ArrayAdapter<>(ProgressActivity.this.getContext(), android.R.layout.simple_list_item_1, list);
         progressList.setAdapter(adapter);
 
         String id = pref.getString("id", "0");
@@ -109,13 +115,15 @@ public class ProgressActivity extends Fragment {
                                 String log_id = obj.getString("log_id");
 
                                 proglist.add(log_id);
-                                list.add(log_date + " : " + pro_percentage);
-                                adapter.notifyDataSetChanged();
+                                progressarraylist.add(new ProgressList(log_id, log_date, pro_percentage));
+//                                list.add(log_date + " : " + pro_percentage);
+//                                adapter.notifyDataSetChanged();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+                        adapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
             @Override
