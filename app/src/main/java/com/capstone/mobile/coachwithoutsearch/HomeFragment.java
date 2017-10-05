@@ -91,6 +91,7 @@ public class HomeFragment extends Fragment {
                 Intent client = new Intent(HomeFragment.this.getActivity(), CustomerProfile.class);
 //                Log.d("ClientID:", String.valueOf(ClientID));
                 client.putExtra("ClientID", ClientID);
+                Log.d("ClientID", ClientID);
                 client.putExtra("ClientName", clientname);
 
                 client.putExtra("ClientSession", sessionremain);

@@ -11,7 +11,7 @@ public class CustomerProfile extends AppCompatActivity {
 
     private Button btnViewWorkout;
     TextView custid, custname, clsname, sessions;
-    String customerClsName, customerWrkID, customerFullName;
+    String customerID, customerClsName, customerWrkID, customerFullName;
 //    TextView custlname, custfname;
 
     @Override
@@ -28,7 +28,7 @@ public class CustomerProfile extends AppCompatActivity {
 //        custfname = (TextView) findViewById(R.id.custFName);
 
         Intent client = getIntent();
-        String customerID = client.getStringExtra("ClientID");
+        customerID = client.getStringExtra("ClientID");
         String customerName = client.getStringExtra("ClientName");
         String customerSessionRemain = client.getStringExtra("ClientSession");
         customerClsName = client.getStringExtra("ClientClsName");
@@ -49,6 +49,7 @@ public class CustomerProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent viewWorkout = new Intent(CustomerProfile.this, CustomerViewWorkout.class);
+                viewWorkout.putExtra("ClientID", customerID);
                 viewWorkout.putExtra("ClientClassName", customerClsName);
                 viewWorkout.putExtra("ClientWrkID", customerWrkID);
                 viewWorkout.putExtra("ClientFullName", customerFullName);

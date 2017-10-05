@@ -29,14 +29,27 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ACTION"
-        android:textStyle="bold"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Action"
         android:textColor="@color/iconColor"
-        android:layout_marginRight="8dp"
+        android:textStyle="bold"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/txtVWClass"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintTop_toBottomOf="@+id/txtVWClass" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="345dp"
+        android:layout_height="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@color/navColor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        tools:layout_editor_absoluteY="128dp" />
 
     <TextView
         android:id="@+id/txtVWClass"
@@ -55,6 +68,52 @@
         app:layout_constraintTop_toBottomOf="@+id/txtClientFullName"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
+
+    <ListView
+        android:id="@+id/viewworkoutlv"
+        android:background="@color/iconColor"
+        android:layout_width="0dp"
+        android:layout_height="423dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        tools:layout_editor_absoluteY="141dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Activity"
+        android:textColor="@color/iconColor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtVWClass" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Sets"
+        android:textColor="@color/iconColor"
+        app:layout_constraintTop_toBottomOf="@+id/txtVWClass"
+        app:layout_constraintLeft_toRightOf="@+id/textView"
+        android:layout_marginLeft="50dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Status"
+        android:textColor="@color/iconColor"
+        app:layout_constraintTop_toBottomOf="@+id/txtVWClass"
+        app:layout_constraintLeft_toRightOf="@+id/textView9"
+        android:layout_marginLeft="50dp" />
 
     <!-- <ListView
         android:id="@+id/custWorkout"
