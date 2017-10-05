@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +27,7 @@ import java.util.Map;
 
 public class CustomerViewWorkout extends AppCompatActivity {
 
-    TextView clsname, clientfullname;
+    TextView workoutname, clientfullname;
     ListView vwList;
     ArrayList<ViewWorkoutList> viewWorkoutListArrayList;
     ViewWorkoutListAdapter adapter;
@@ -39,7 +38,7 @@ public class CustomerViewWorkout extends AppCompatActivity {
         setContentView(R.layout.activity_customer_view_workout);
 
         clientfullname = (TextView) findViewById(R.id.txtClientFullName);
-        clsname = (TextView) findViewById(R.id.txtVWClass);
+        workoutname = (TextView) findViewById(R.id.txtworkoutVW);
         vwList = (ListView) findViewById(R.id.viewworkoutlv);
 
         viewWorkoutListArrayList = new ArrayList<>();
@@ -48,16 +47,20 @@ public class CustomerViewWorkout extends AppCompatActivity {
         vwList.setAdapter(adapter);
 
         Intent viewWorkout = getIntent();
+        Intent item = getIntent();
         String id = viewWorkout.getStringExtra("ClientID");
 
-        Toast.makeText(this, "LINTE NGA ID: " + id, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "LINTE NGA ID: " + id, Toast.LENGTH_SHORT).show();
 
         String customerClsName = viewWorkout.getStringExtra("ClientClsName");
         String wrkID = viewWorkout.getStringExtra("ClientWrkID");
         String fullname = viewWorkout.getStringExtra("ClientFullName");
+//        String workoutplanname = item.getStringExtra("WrkName");
+//        Toast.makeText(this, "WORKOUT NAME: " + workoutplanname, Toast.LENGTH_SHORT).show();
 
-        clientfullname.setText(fullname.toUpperCase() );
-        clsname.setText(customerClsName.toUpperCase());
+        clientfullname.setText(fullname.toUpperCase());
+//        workoutname.setText(workoutplanname);
+        workoutname.setText(customerClsName.toUpperCase());
 
         if (isNetworkAvailable()) {
             //run AsyncTask JSONParser
