@@ -68,7 +68,9 @@ public class HomeFragment extends Fragment {
         clientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String ClientID = (String) id_list.get(position);
+                String ClientID = (String) id_list.get(position); //gets log_id
+
+//                Toast.makeText(HomeFragment.this.getActivity(), "LINTE NGA ID: " + ClientID, Toast.LENGTH_SHORT).show();
 
                 LogbookList custname = (LogbookList) parent.getItemAtPosition(position);
                 String clientname = custname.getCustfirstname() + " " + custname.getCustlastname();
@@ -89,13 +91,12 @@ public class HomeFragment extends Fragment {
 //                                logbookList.getCustfirstname(), Toast.LENGTH_SHORT).show();
 //                Toast.makeText(HomeFragment.this.getActivity(), "Name: " + clientname, Toast.LENGTH_SHORT).show();
                 Intent client = new Intent(HomeFragment.this.getActivity(), CustomerProfile.class);
-//                Log.d("ClientID:", String.valueOf(ClientID));
+                Log.d("ClientID:", String.valueOf(ClientID));
                 client.putExtra("ClientID", ClientID);
-                Log.d("ClientID", ClientID);
+//                Log.d("LINTE NGA ID", ClientID);
                 client.putExtra("ClientName", clientname);
-
+                client.putExtra("ClientClsName", clsname);
                 client.putExtra("ClientSession", sessionremain);
-
                 client.putExtra("ClientWrkID", wrkid);
                 client.putExtra("ClientFullName", clientfullname);
                 startActivity(client);

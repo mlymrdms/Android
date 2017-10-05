@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CustomerProfile extends AppCompatActivity {
 
@@ -29,11 +30,11 @@ public class CustomerProfile extends AppCompatActivity {
 
         Intent client = getIntent();
         customerID = client.getStringExtra("ClientID");
-        String customerName = client.getStringExtra("ClientName");
-        String customerSessionRemain = client.getStringExtra("ClientSession");
         customerClsName = client.getStringExtra("ClientClsName");
         customerWrkID = client.getStringExtra("ClientWrkID");
         customerFullName = client.getStringExtra("ClientFullName");
+        String customerName = client.getStringExtra("ClientName");
+        String customerSessionRemain = client.getStringExtra("ClientSession");
 
 //        String customerLName = client.getStringExtra("ClientLName");
 //        String customerFName = client.getStringExtra("ClientFName");
@@ -50,7 +51,8 @@ public class CustomerProfile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent viewWorkout = new Intent(CustomerProfile.this, CustomerViewWorkout.class);
                 viewWorkout.putExtra("ClientID", customerID);
-                viewWorkout.putExtra("ClientClassName", customerClsName);
+                viewWorkout.putExtra("ClientClsName", customerClsName);
+//                Toast.makeText(CustomerProfile.this, "CLASSNAME: " + customerClsName, Toast.LENGTH_SHORT).show();
                 viewWorkout.putExtra("ClientWrkID", customerWrkID);
                 viewWorkout.putExtra("ClientFullName", customerFullName);
                 startActivity(viewWorkout);

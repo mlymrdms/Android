@@ -67,7 +67,7 @@ public class CoachClasses extends Fragment {
                 String ClassID = (String) id_list.get(position);
                 String ClassName = (String) parent.getItemAtPosition(position);
                 Intent item = new Intent(CoachClasses.this.getActivity(), ClassesActivity.class);
-                Log.d("ID:", String.valueOf(ClassID));
+                Log.d("CLASSID:", String.valueOf(ClassID));
                 item.putExtra("ClassID", ClassID);
                 item.putExtra("ClassName", ClassName);
                 startActivity(item);
