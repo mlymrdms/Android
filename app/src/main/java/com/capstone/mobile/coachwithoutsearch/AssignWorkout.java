@@ -61,6 +61,7 @@ public class AssignWorkout extends AppCompatActivity {
                     String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/assign_addworkout.php?log_id=" + logid + "&wrk_id=" + wrkID;
 //                    Toast.makeText(getContext(), "LINK: " + temp, Toast.LENGTH_SHORT).show();
                     setComplete(temp);
+                    finish();
                 }
 //                startActivity(new Intent(AssignWorkout.this, CustomerProfile.class));
             }

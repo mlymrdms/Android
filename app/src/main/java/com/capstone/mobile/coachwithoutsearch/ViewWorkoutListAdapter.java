@@ -55,12 +55,13 @@ public class ViewWorkoutListAdapter extends ArrayAdapter<ViewWorkoutList> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
+        final String proid = getItem(position).getProid();
         final String acpid = getItem(position).getAcpid();
         String actname = getItem(position).getActname();
         String wrasets = getItem(position).getWrasets();
         final String actstatus = getItem(position).getActstatus();
 
-        ViewWorkoutList viewWorkoutList = new ViewWorkoutList(acpid, actname, wrasets, actstatus);
+        ViewWorkoutList viewWorkoutList = new ViewWorkoutList(proid, acpid, actname, wrasets, actstatus);
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         convertView = inflater.inflate(cResource, parent, false);
@@ -72,7 +73,6 @@ public class ViewWorkoutListAdapter extends ArrayAdapter<ViewWorkoutList> {
         Button completebtn = (Button) convertView.findViewById(R.id.btnComplete);
         Button incompletebtn = (Button) convertView.findViewById(R.id.btnIncomplete);
         Button skippedbtn = (Button) convertView.findViewById(R.id.btnSkipped);
-        Button finishbtn = (Button) convertView.findViewById(R.id.btnFinish);
         SwipeRefreshLayout swipeListView = (SwipeRefreshLayout) convertView.findViewById(R.id.swipe);
 
         actName.setText(actname);
@@ -89,24 +89,6 @@ public class ViewWorkoutListAdapter extends ArrayAdapter<ViewWorkoutList> {
         } else if(actstatus.equals("SKIPPED")){
             skippedbtn.setVisibility(View.GONE);
         }
-
-
-        finishbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNetworkAvailable()) {
-                    //run AsyncTask JSONParser
-                    Log.d("is it connected?", "Yes it is");
-
-                    String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/activityprogress.php?acp_id=" + acpid +"&status=" + actStatus.getText();
-//                    Toast.makeText(getContext(), "LINK: " + temp, Toast.LENGTH_SHORT).show();
-                    setComplete(temp);
-
-//                    getContext().startActivity(new Intent(getContext(), CustomerViewWorkout.class));
-//                    ((Activity)getContext()).finish();
-                }
-            }
-        });
 
         completebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,13 +164,6 @@ public class ViewWorkoutListAdapter extends ArrayAdapter<ViewWorkoutList> {
 //                skipped.setVisibility(View.GONE);
             }
         });
-
-//        swipeListView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                swipeListView.setRefreshing(false);
-//            }
-//        });
 
 
         return convertView;

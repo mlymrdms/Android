@@ -6,13 +6,22 @@ package com.capstone.mobile.coachwithoutsearch;
 
 public class ViewWorkoutList {
 
-    String acpid, actname, wrasets, actstatus;
+    String proid, acpid, actname, wrasets, actstatus;
 
-    public ViewWorkoutList(String acpid, String actname, String wrasets, String actstatus) {
+    public ViewWorkoutList(String proid, String acpid, String actname, String wrasets, String actstatus) {
+        this.proid = proid;
         this.acpid = acpid;
         this.actname = actname;
         this.wrasets = wrasets;
         this.actstatus = actstatus;
+    }
+
+    public String getProid() {
+        return proid;
+    }
+
+    public void setProid(String proid) {
+        this.proid = proid;
     }
 
     public String getAcpid() {

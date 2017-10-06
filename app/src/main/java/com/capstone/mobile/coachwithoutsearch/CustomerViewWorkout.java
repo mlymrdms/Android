@@ -30,13 +30,13 @@ import java.util.Map;
 
 public class CustomerViewWorkout extends AppCompatActivity {
 
-    TextView workoutname, clientfullname;
+    TextView workoutname, clientfullname, proid;
     ListView vwList;
     SwipeRefreshLayout swipeListView;
     ArrayList<ViewWorkoutList> viewWorkoutListArrayList;
     ViewWorkoutListAdapter adapter;
     ArrayList acp_id_list;
-//    Button completebtn, incompletebtn, skippedbtn;
+    Button finishbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +47,8 @@ public class CustomerViewWorkout extends AppCompatActivity {
         workoutname = (TextView) findViewById(R.id.txtworkoutVW);
         vwList = (ListView) findViewById(R.id.viewworkoutlv);
         swipeListView = (SwipeRefreshLayout) findViewById(R.id.swipe);
-
-//        completebtn = (Button) findViewById(R.id.btnComplete);
-//        incompletebtn = (Button) findViewById(R.id.btnIncomplete);
-//        skippedbtn = (Button) findViewById(R.id.btnSkipped);
+        finishbtn = (Button) findViewById(R.id.btnFinish);
+        proid = (TextView) findViewById(R.id.txtproid);
 
 
         viewWorkoutListArrayList = new ArrayList<>();
@@ -103,7 +101,30 @@ public class CustomerViewWorkout extends AppCompatActivity {
             }
         });
 
+//        finishbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                proid.getText();
+//                Toast.makeText(CustomerViewWorkout.this, "PRO ID: " + proid.getText(), Toast.LENGTH_SHORT).show();
+
+//            }
+//        });
+
     }
+
+    public void finishworkout(View view){
+//        Toast.makeText(CustomerViewWorkout.this, "PRO ID: " + proid.getText(), Toast.LENGTH_SHORT).show();
+        if (isNetworkAvailable()) {
+            //run AsyncTask JSONParser
+            Log.d("is it connected?", "Yes it is");
+
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/finishworkout.php?pro_id=" + proid.getText();
+//                    Toast.makeText(getContext(), "LINK: " + temp, Toast.LENGTH_SHORT).show();
+            setComplete(temp);
+            finish();
+        }
+    }
+
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(CONNECTIVITY_SERVICE);
@@ -123,18 +144,20 @@ public class CustomerViewWorkout extends AppCompatActivity {
                             JSONArray jarray = new JSONArray(response);
                             for (int i = 0; i < jarray.length(); i++) {
                                 JSONObject obj = jarray.getJSONObject(i);
+                                String pro_id = obj.getString("pro_id");
                                 String acp_id = obj.getString("acp_id");
                                 String act_name = obj.getString("act_name");
                                 String wra_sets = obj.getString("wra_sets");
                                 String act_status = obj.getString("act_status");
 //                                Toast.makeText(RoutinesActivity.this, obj.getString("act_name"), Toast.LENGTH_SHORT).show();
+                                Log.d("PRO ID: ", pro_id);
                                 Log.d("ACP ID: ", acp_id);
                                 Log.d("ACT NAME: ", act_name);
                                 Log.d("WRA SETS: ", wra_sets);
                                 Log.d("ACT STATUS: ", act_status);
 
-//                                acp_id_list.add(acp_id);
-                                viewWorkoutListArrayList.add(new ViewWorkoutList(acp_id, act_name, wra_sets, act_status));
+                                proid.setText(pro_id);
+                                viewWorkoutListArrayList.add(new ViewWorkoutList(pro_id, acp_id, act_name, wra_sets, act_status));
                             }
 
                         } catch (JSONException e) {
@@ -159,22 +182,27 @@ public class CustomerViewWorkout extends AppCompatActivity {
 
     }
 
-//    public void complete (View view){
-////        ViewWorkoutList actstatus = (ViewWorkoutList) parent.getItemAtPosition(position);
-//
-//        if(act_status == null){
-//            Toast.makeText(this, "COMPLETE!", Toast.LENGTH_SHORT).show();
-//            incompletebtn.setEnabled(false);
-//            skippedbtn.setEnabled(false);
-//        } else
-//            completebtn.setVisibility(View.INVISIBLE);
-//    }
-//
-//    public void incomplete (View view){
-//        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
-//    }
-//
-//    public void skipped (View view){
-//        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
-//    }
+    private void setComplete(String url) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d("GA CONNECT:", response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("error", "server error");
+            }
+        }) {
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("type", "1");
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
 }

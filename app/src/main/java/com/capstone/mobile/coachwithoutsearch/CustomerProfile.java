@@ -51,7 +51,7 @@ public class CustomerProfile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent viewWorkout = new Intent(CustomerProfile.this, CustomerViewWorkout.class);
                 viewWorkout.putExtra("logID", customerID);
-                Toast.makeText(CustomerProfile.this, "LOGID: " + customerID, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CustomerProfile.this, "LOGID: " + customerID, Toast.LENGTH_SHORT).show();
                 viewWorkout.putExtra("ClientClsName", customerClsName);
 //                Toast.makeText(CustomerProfile.this, "CLASSNAME: " + customerClsName, Toast.LENGTH_SHORT).show();
                 viewWorkout.putExtra("ClientWrkID", customerWrkID);

@@ -74,8 +74,8 @@ public class HomeFragment extends Fragment {
 
                 String logID = (String) id_list.get(position); //gets log_id
 
-                Toast.makeText(getActivity(), "WRKID: " + wrkid, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), "LOGID: " + logID, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "WRKID: " + wrkid, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "LOGID: " + logID, Toast.LENGTH_SHORT).show();
 
                 if(!wrkid.equals("0")){
 //                    String ClientID = (String) id_list.get(position); //gets log_id

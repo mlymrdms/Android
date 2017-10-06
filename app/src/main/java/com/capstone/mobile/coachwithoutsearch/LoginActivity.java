@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends AppCompatActivity {
+public class    LoginActivity extends AppCompatActivity {
     public String webPage;
     EditText stfEmail, stfPassword;
     String email, password;
