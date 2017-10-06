@@ -62,8 +62,8 @@ public class BmiActivity extends Fragment {
                 weight = Double.parseDouble(et_weight.getText().toString());
                 height = Double.parseDouble(et_height.getText().toString());
                 //initiating the spinner
-                sp_HUnit = (Spinner) view.findViewById(R.id.sp_HUnit);
-                sp_WUnit = (Spinner) view.findViewById(R.id.sp_WUnit);
+//                sp_HUnit = (Spinner) view.findViewById(R.id.sp_HUnit);
+//                sp_WUnit = (Spinner) view.findViewById(R.id.sp_WUnit);
                 //getting the value of spinner
                 unitH = sp_HUnit.getSelectedItem().toString();
                 unitW = sp_WUnit.getSelectedItem().toString();

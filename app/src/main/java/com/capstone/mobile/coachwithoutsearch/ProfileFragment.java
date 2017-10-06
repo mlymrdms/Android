@@ -97,15 +97,15 @@ public class ProfileFragment extends Fragment {
         //TabLayout tabs = (TabLayout) view.findViewById(R.id.tabs);
         //tabs.setupWithViewPager(viewPager);
 
-        btnID = (ImageView) view.findViewById(R.id.IDButton);
-
-        btnID.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent coachID = new Intent(getActivity(), CoachID.class);
-                startActivity(coachID);
-            }
-        });
+//        btnID = (ImageView) view.findViewById(R.id.IDButton);
+//
+//        btnID.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent coachID = new Intent(getActivity(), CoachID.class);
+//                startActivity(coachID);
+//            }
+//        });
 
         //check if network is available
         if(isNetworkAvailable()){

@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,8 +32,11 @@ public class CustomerViewWorkout extends AppCompatActivity {
 
     TextView workoutname, clientfullname;
     ListView vwList;
+    SwipeRefreshLayout swipeListView;
     ArrayList<ViewWorkoutList> viewWorkoutListArrayList;
     ViewWorkoutListAdapter adapter;
+    ArrayList acp_id_list;
+//    Button completebtn, incompletebtn, skippedbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +46,22 @@ public class CustomerViewWorkout extends AppCompatActivity {
         clientfullname = (TextView) findViewById(R.id.txtClientFullName);
         workoutname = (TextView) findViewById(R.id.txtworkoutVW);
         vwList = (ListView) findViewById(R.id.viewworkoutlv);
+        swipeListView = (SwipeRefreshLayout) findViewById(R.id.swipe);
+
+//        completebtn = (Button) findViewById(R.id.btnComplete);
+//        incompletebtn = (Button) findViewById(R.id.btnIncomplete);
+//        skippedbtn = (Button) findViewById(R.id.btnSkipped);
+
 
         viewWorkoutListArrayList = new ArrayList<>();
+        acp_id_list = new ArrayList();
 
         adapter = new ViewWorkoutListAdapter(this, R.layout.activity_customer_view_workout_list, viewWorkoutListArrayList);
         vwList.setAdapter(adapter);
 
         Intent viewWorkout = getIntent();
         Intent item = getIntent();
-        String id = viewWorkout.getStringExtra("ClientID");
+        final String id = viewWorkout.getStringExtra("ClientID");
 
 //        Toast.makeText(this, "LINTE NGA ID: " + id, Toast.LENGTH_SHORT).show();
 
@@ -57,6 +70,8 @@ public class CustomerViewWorkout extends AppCompatActivity {
         String fullname = viewWorkout.getStringExtra("ClientFullName");
 //        String workoutplanname = item.getStringExtra("WrkName");
 //        Toast.makeText(this, "WORKOUT NAME: " + workoutplanname, Toast.LENGTH_SHORT).show();
+
+//        String acpid = (String) acp_id_list.get(position);
 
         clientfullname.setText(fullname.toUpperCase());
 //        workoutname.setText(workoutplanname);
@@ -70,6 +85,24 @@ public class CustomerViewWorkout extends AppCompatActivity {
 //            String temp = "http://192.168.43.144/Capstone/app/coach/activity.php?id=" + id;
             checkUser(temp);
         }
+
+        swipeListView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                if (isNetworkAvailable()) {
+                    //run AsyncTask JSONParser
+                    Log.d("is it connected?", "Yes it is");
+
+                    String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/logbook_workout.php?id=" + id;
+//            String temp = "http://192.168.43.144/Capstone/app/coach/activity.php?id=" + id;
+                    checkUser(temp);
+                }
+
+                swipeListView.setRefreshing(false);
+            }
+        });
+
     }
 
     private boolean isNetworkAvailable() {
@@ -80,6 +113,7 @@ public class CustomerViewWorkout extends AppCompatActivity {
     }
 
     private void checkUser(String url) {
+        adapter.clear();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
@@ -99,6 +133,7 @@ public class CustomerViewWorkout extends AppCompatActivity {
                                 Log.d("WRA SETS: ", wra_sets);
                                 Log.d("ACT STATUS: ", act_status);
 
+//                                acp_id_list.add(acp_id);
                                 viewWorkoutListArrayList.add(new ViewWorkoutList(acp_id, act_name, wra_sets, act_status));
                             }
 
@@ -123,4 +158,23 @@ public class CustomerViewWorkout extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+
+//    public void complete (View view){
+////        ViewWorkoutList actstatus = (ViewWorkoutList) parent.getItemAtPosition(position);
+//
+//        if(act_status == null){
+//            Toast.makeText(this, "COMPLETE!", Toast.LENGTH_SHORT).show();
+//            incompletebtn.setEnabled(false);
+//            skippedbtn.setEnabled(false);
+//        } else
+//            completebtn.setVisibility(View.INVISIBLE);
+//    }
+//
+//    public void incomplete (View view){
+//        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+//    }
+//
+//    public void skipped (View view){
+//        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+//    }
 }

@@ -15,7 +15,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="25dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="@color/iconColor"
@@ -23,7 +23,8 @@
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.4" />
 
     <TextView
         android:id="@+id/textView22"
@@ -31,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:text="Action"
         android:textColor="@color/iconColor"
         android:textStyle="bold|italic"
@@ -49,7 +50,7 @@
         android:background="@color/navColor"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintTop_toBottomOf="@+id/txtworkoutVW"
         app:layout_constraintHorizontal_bias="0.0" />
 
@@ -77,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:text="Activity"
         android:textColor="@color/iconColor"
         android:textStyle="bold|italic"
@@ -90,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:text="Sets"
         android:textColor="@color/iconColor"
         android:textStyle="bold|italic"
@@ -103,28 +104,62 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:text="Status"
         android:textColor="@color/iconColor"
         android:textStyle="bold|italic"
         app:layout_constraintLeft_toRightOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/txtworkoutVW" />
 
-    <ListView
-        android:id="@+id/viewworkoutlv"
-        android:layout_width="0dp"
-        android:layout_height="410dp"
-        android:layout_marginEnd="8dp"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="0dp"
-        android:background="@color/iconColor"
+        android:layout_marginTop="5dp"
+        android:background="@color/buttonColor"
+        android:text="FINISH WORKOUT"
+        android:textAlignment="center"
+        android:textColor="@color/iconColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView16"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp" />
+        app:layout_constraintTop_toBottomOf="@+id/swipe" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="0dp"
+        android:layout_height="370dp"
+        android:visibility="visible"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ListView
+            android:id="@+id/viewworkoutlv"
+            android:layout_width="0dp"
+            android:layout_height="410dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/backgroundColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
 
     <!-- <ListView
         android:id="@+id/custWorkout"

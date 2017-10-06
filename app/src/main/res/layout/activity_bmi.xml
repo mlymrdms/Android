@@ -69,7 +69,7 @@
                 android:ems="10"
                 android:inputType="numberDecimal" />
 
-            <Spinner
+            <!-- <Spinner
                 android:id="@+id/sp_HUnit"
                 android:layout_width="65dp"
                 android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                 tools:layout_editor_absoluteX="278dp"
                 tools:layout_editor_absoluteY="25dp" />
 
-            <Spinner
+             <Spinner
                 android:id="@+id/sp_WUnit"
                 android:layout_width="65dp"
                 android:layout_height="wrap_content"
@@ -87,19 +87,23 @@
                 android:layout_toEndOf="@+id/et_weight"
                 android:entries="@array/WUnit"
                 tools:layout_editor_absoluteX="278dp"
-                tools:layout_editor_absoluteY="25dp" />
+                tools:layout_editor_absoluteY="25dp" /> -->
 
             <Button
                 android:id="@+id/bt_calculate"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="19dp"
                 android:background="@color/red"
                 android:text="Calculate BMI"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_below="@+id/et_height"
-                android:layout_alignEnd="@+id/sp_HUnit" />
+                android:layout_toRightOf="@+id/tv_calculation"
+                android:layout_toEndOf="@+id/tv_calculation"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp" />
+               <!-- android:layout_alignEnd="@+id/sp_HUnit" /> -->
 
             <TextView
                 android:id="@+id/textView4"
