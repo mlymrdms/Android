@@ -29,7 +29,7 @@ public class CustomerProfile extends AppCompatActivity {
 //        custfname = (TextView) findViewById(R.id.custFName);
 
         Intent client = getIntent();
-        customerID = client.getStringExtra("ClientID");
+        customerID = client.getStringExtra("logID");
         customerClsName = client.getStringExtra("ClientClsName");
         customerWrkID = client.getStringExtra("ClientWrkID");
         customerFullName = client.getStringExtra("ClientFullName");
@@ -50,7 +50,8 @@ public class CustomerProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent viewWorkout = new Intent(CustomerProfile.this, CustomerViewWorkout.class);
-                viewWorkout.putExtra("ClientID", customerID);
+                viewWorkout.putExtra("logID", customerID);
+                Toast.makeText(CustomerProfile.this, "LOGID: " + customerID, Toast.LENGTH_SHORT).show();
                 viewWorkout.putExtra("ClientClsName", customerClsName);
 //                Toast.makeText(CustomerProfile.this, "CLASSNAME: " + customerClsName, Toast.LENGTH_SHORT).show();
                 viewWorkout.putExtra("ClientWrkID", customerWrkID);

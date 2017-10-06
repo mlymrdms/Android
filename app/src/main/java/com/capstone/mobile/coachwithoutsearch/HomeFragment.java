@@ -68,38 +68,53 @@ public class HomeFragment extends Fragment {
         clientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String ClientID = (String) id_list.get(position); //gets log_id
-
-//                Toast.makeText(HomeFragment.this.getActivity(), "LINTE NGA ID: " + ClientID, Toast.LENGTH_SHORT).show();
-
-                LogbookList custname = (LogbookList) parent.getItemAtPosition(position);
-                String clientname = custname.getCustfirstname() + " " + custname.getCustlastname();
-
-                LogbookList custclsname = (LogbookList) parent.getItemAtPosition(position);
-                String clsname = custclsname.getCustclsname();
-
-                LogbookList custsessionremain = (LogbookList) parent.getItemAtPosition(position);
-                String sessionremain = custsessionremain.getCustsessions();
 
                 LogbookList custwrkid = (LogbookList) parent.getItemAtPosition(position);
                 String wrkid = custwrkid.getWrkid();
 
-                LogbookList custfullname = (LogbookList) parent.getItemAtPosition(position);
-                String clientfullname = custname.getCustlastname() + ", " + custname.getCustfirstname();
+                String logID = (String) id_list.get(position); //gets log_id
+
+                Toast.makeText(getActivity(), "WRKID: " + wrkid, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "LOGID: " + logID, Toast.LENGTH_SHORT).show();
+
+                if(!wrkid.equals("0")){
+//                    String ClientID = (String) id_list.get(position); //gets log_id
+
+//                Toast.makeText(HomeFragment.this.getActivity(), "LINTE NGA ID: " + ClientID, Toast.LENGTH_SHORT).show();
+
+                    LogbookList custname = (LogbookList) parent.getItemAtPosition(position);
+                    String clientname = custname.getCustfirstname() + " " + custname.getCustlastname();
+
+                    LogbookList custclsname = (LogbookList) parent.getItemAtPosition(position);
+                    String clsname = custclsname.getCustclsname();
+
+                    LogbookList custsessionremain = (LogbookList) parent.getItemAtPosition(position);
+                    String sessionremain = custsessionremain.getCustsessions();
+
+                    LogbookList customerwrkid = (LogbookList) parent.getItemAtPosition(position);
+                    String clientwrkid = customerwrkid.getWrkid();
+
+                    LogbookList custfullname = (LogbookList) parent.getItemAtPosition(position);
+                    String clientfullname = custname.getCustlastname() + ", " + custname.getCustfirstname();
 //                String ClientFullName = String.valueOf(custname);
 //                Toast.makeText(HomeFragment.this.getActivity(), "Name:\n" + logbookList.getCustlastname() + ", " +
 //                                logbookList.getCustfirstname(), Toast.LENGTH_SHORT).show();
 //                Toast.makeText(HomeFragment.this.getActivity(), "Name: " + clientname, Toast.LENGTH_SHORT).show();
-                Intent client = new Intent(HomeFragment.this.getActivity(), CustomerProfile.class);
-                Log.d("ClientID:", String.valueOf(ClientID));
-                client.putExtra("ClientID", ClientID);
+                    Intent client = new Intent(HomeFragment.this.getActivity(), CustomerProfile.class);
+                    Log.d("logID:", String.valueOf(logID));
+                    client.putExtra("logID", logID);
 //                Log.d("LINTE NGA ID", ClientID);
-                client.putExtra("ClientName", clientname);
-                client.putExtra("ClientClsName", clsname);
-                client.putExtra("ClientSession", sessionremain);
-                client.putExtra("ClientWrkID", wrkid);
-                client.putExtra("ClientFullName", clientfullname);
-                startActivity(client);
+                    client.putExtra("ClientName", clientname);
+                    client.putExtra("ClientClsName", clsname);
+                    client.putExtra("ClientSession", sessionremain);
+                    client.putExtra("ClientWrkID", clientwrkid);
+                    client.putExtra("ClientFullName", clientfullname);
+                    startActivity(client);
+                } else {
+                    Intent assignworkout = new Intent(getActivity(), AssignWorkout.class);
+                    assignworkout.putExtra("logID", logID);
+                    startActivity(assignworkout);
+                }
             }
         });
 //

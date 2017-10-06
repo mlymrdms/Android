@@ -37,7 +37,8 @@
         <activity android:name=".CBRActivity" />
         <activity android:name=".ClassesActivity" />
         <activity android:name=".WorkoutsActivity" />
-        <activity android:name=".RoutinesActivity"></activity>
+        <activity android:name=".RoutinesActivity" />
+        <activity android:name=".AssignWorkout"></activity>
     </application>
 
 </manifest>

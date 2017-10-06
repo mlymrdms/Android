@@ -72,6 +72,7 @@ public class ViewWorkoutListAdapter extends ArrayAdapter<ViewWorkoutList> {
         Button completebtn = (Button) convertView.findViewById(R.id.btnComplete);
         Button incompletebtn = (Button) convertView.findViewById(R.id.btnIncomplete);
         Button skippedbtn = (Button) convertView.findViewById(R.id.btnSkipped);
+        Button finishbtn = (Button) convertView.findViewById(R.id.btnFinish);
         SwipeRefreshLayout swipeListView = (SwipeRefreshLayout) convertView.findViewById(R.id.swipe);
 
         actName.setText(actname);
@@ -88,6 +89,24 @@ public class ViewWorkoutListAdapter extends ArrayAdapter<ViewWorkoutList> {
         } else if(actstatus.equals("SKIPPED")){
             skippedbtn.setVisibility(View.GONE);
         }
+
+
+        finishbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNetworkAvailable()) {
+                    //run AsyncTask JSONParser
+                    Log.d("is it connected?", "Yes it is");
+
+                    String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/activityprogress.php?acp_id=" + acpid +"&status=" + actStatus.getText();
+//                    Toast.makeText(getContext(), "LINK: " + temp, Toast.LENGTH_SHORT).show();
+                    setComplete(temp);
+
+//                    getContext().startActivity(new Intent(getContext(), CustomerViewWorkout.class));
+//                    ((Activity)getContext()).finish();
+                }
+            }
+        });
 
         completebtn.setOnClickListener(new View.OnClickListener() {
             @Override

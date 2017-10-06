@@ -60,8 +60,8 @@ public class CustomerViewWorkout extends AppCompatActivity {
         vwList.setAdapter(adapter);
 
         Intent viewWorkout = getIntent();
-        Intent item = getIntent();
-        final String id = viewWorkout.getStringExtra("ClientID");
+//        Intent item = getIntent();
+        final String id = viewWorkout.getStringExtra("logID");
 
 //        Toast.makeText(this, "LINTE NGA ID: " + id, Toast.LENGTH_SHORT).show();
 
