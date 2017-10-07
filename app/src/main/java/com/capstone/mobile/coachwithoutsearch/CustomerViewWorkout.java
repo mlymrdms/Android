@@ -113,18 +113,15 @@ public class CustomerViewWorkout extends AppCompatActivity {
     }
 
     public void finishworkout(View view){
-//        Toast.makeText(CustomerViewWorkout.this, "PRO ID: " + proid.getText(), Toast.LENGTH_SHORT).show();
         if (isNetworkAvailable()) {
             //run AsyncTask JSONParser
             Log.d("is it connected?", "Yes it is");
 
             String temp = "http://sixonezerozeromaf.000webhostapp.com/app/coach/finishworkout.php?pro_id=" + proid.getText();
-//                    Toast.makeText(getContext(), "LINK: " + temp, Toast.LENGTH_SHORT).show();
             setComplete(temp);
             finish();
         }
     }
-
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(CONNECTIVITY_SERVICE);
