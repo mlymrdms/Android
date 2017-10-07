@@ -57,12 +57,12 @@ public class MoreActivity extends Fragment{
     }
 
     public void profile(View view){
-        Intent profile = new Intent(this.getActivity(), ProfileActivity.class);
+        Intent profile = new Intent(getActivity(), ProfileActivity.class);
         startActivity(profile);
     }
 
     public void contact(View view){
-        Intent contact = new Intent(this.getActivity(), ContactusActivity.class);
+        Intent contact = new Intent(getActivity(), ContactusActivity.class);
         startActivity(contact);
     }
 }

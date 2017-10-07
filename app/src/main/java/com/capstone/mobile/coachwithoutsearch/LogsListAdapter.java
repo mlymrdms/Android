@@ -22,7 +22,7 @@ public class LogsListAdapter extends ArrayAdapter<LogsList> {
 
     public LogsListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<LogsList> objects) {
         super(context, resource, objects);
-        this.cResource = cResource;
+        this.cResource = resource;
     }
 
     @NonNull

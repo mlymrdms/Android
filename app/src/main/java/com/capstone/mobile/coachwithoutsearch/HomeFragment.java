@@ -117,30 +117,6 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
-//
-//        btnNext.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent viewWorkout = new Intent(getActivity(), CustomerProfile.class);
-//                startActivity(viewWorkout);
-//            }
-//        });
-
-//        adapter = new ArrayAdapter<>(HomeFragment.this.getActivity(), android.R.layout.simple_list_item_1, list);
-//        clientList.setAdapter(adapter);
-//
-//        clientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String ClientID = (String) id_list.get(position);
-//                String ClientName = (String) parent.getItemAtPosition(position);
-//                Intent client = new Intent(HomeFragment.this.getActivity(), CustomerProfile.class);
-//                Log.d("ID:", String.valueOf(ClientID));
-//                client.putExtra("ClientID", ClientID);
-//                client.putExtra("ClientName", ClientName);
-//                startActivity(client);
-//            }
-//        });
 
         String id = pref.getString("id", "0");
 

@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,13 +33,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
+import static android.content.Context.MODE_PRIVATE;
 
 public class LogsActivity extends Fragment{
     View view;
     SharedPreferences pref;
     ListView logList;
     ArrayList<LogsList> logsListArrayList;
+    ArrayList id_list;
     LogsListAdapter adapter;
+
+    public static final String PREFS_NAME = "sharedPref";
 
     public static LogsActivity newInstance() {
         LogsActivity fragment = new LogsActivity();
@@ -58,23 +63,28 @@ public class LogsActivity extends Fragment{
 
         logList = (ListView) view.findViewById(R.id.loglist);
 
+        pref = this.getActivity().getSharedPreferences("sharedPref", MODE_PRIVATE);
+
+        id_list = new ArrayList<>();
         logsListArrayList = new ArrayList<>();
 
         adapter = new LogsListAdapter(this.getActivity(), R.layout.activity_logs_list, logsListArrayList);
         logList.setAdapter(adapter);
 
-        return view;
-//        if(isNetworkAvailable()){
-            //run AsyncTask JSONParser
-//            Log.d("is it connected?", "Yes it is");
+        String id = pref.getString("id", "0");
+        Log.d("CUSTID: ", id);
 
-//            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/client/logs_activity.php?custid=" + id +
-//                    "&month=" + month + "&year=" + year;
-//            checkUser(temp);
+        //check if network is available
+        if(isNetworkAvailable()){
+            //run AsyncTask JSONParser
+            Log.d("is it connected?", "Yes it is");
+
+            String temp = "http://sixonezerozeromaf.000webhostapp.com/app/client/logs_activity.php?custid=" + id;
+            checkUser(temp);
         }
 
-//        return view;
-//    }
+        return view;
+    }
 
     private boolean isNetworkAvailable(){
         ConnectivityManager connectivityManager = (ConnectivityManager) this.getActivity().getSystemService(CONNECTIVITY_SERVICE);
@@ -90,15 +100,25 @@ public class LogsActivity extends Fragment{
                     public void onResponse(String response) {
                         Log.d("LOGS: ", response);
                         try {
-                            JSONArray jarray = new JSONArray(response);
+                            JSONArray jarray= new JSONArray(response);
                             for(int i = 0; i < jarray.length(); i++){
                                 JSONObject obj = jarray.getJSONObject(i);
-//                                String log_date = obj.getString("log_date");
-//                                String pro_percentage = obj.getString("pro_percentage");
-//                                String log_id = obj.getString("log_id");
+                                String log_id = obj.getString("logid");
+                                String log_date = obj.getString("log_date");
+                                String time_in = obj.getString("timein");
+                                String clsname = obj.getString("clsname");
+                                String recid = obj.getString("recid");
+                                String stfFName = obj.getString("stf_firstname");
+                                String stfLName = obj.getString("stf_lastname");
 
-//                                proglist.add(log_id);
-//                                progressarraylist.add(new ProgressList(log_id, log_date, pro_percentage));
+                                Log.d("LOGID", log_date);
+                                Log.d("LOGID", time_in);
+                                Log.d("LOGID", clsname);
+                                Log.d("LOGID", stfFName);
+                                Log.d("LOGID", stfLName);
+
+                                id_list.add(log_id);
+                                logsListArrayList.add(new LogsList(log_date, time_in, clsname, stfFName, stfLName));
 //                                list.add(log_date + " : " + pro_percentage);
 //                                adapter.notifyDataSetChanged();
                             }
@@ -106,7 +126,7 @@ public class LogsActivity extends Fragment{
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-//                        adapter.notifyDataSetChanged();
+                        adapter.notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
             @Override

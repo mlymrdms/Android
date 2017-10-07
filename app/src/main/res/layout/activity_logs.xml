@@ -72,7 +72,7 @@
         android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
+        android:layout_marginLeft="44dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="93dp"
         android:text="Class"
@@ -85,14 +85,16 @@
         android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
+        android:layout_marginLeft="65dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="93dp"
         android:text="Coach"
         android:textColor="@color/iconColor"
         android:textStyle="bold|italic"
         app:layout_constraintLeft_toRightOf="@+id/textView42"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ListView
         android:id="@+id/loglist"
@@ -101,7 +103,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:background="@color/iconColor"
+        android:background="@color/gray"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
