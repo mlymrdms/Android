@@ -28,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class ProfileFragment extends Fragment {
 
     private SectionsPageAdapter mSectionsPageAdapter;
     private ImageView btnEdit;
-    private TextView coachNameHeader, coachID, coachFName, coachLName, coachContact, coachEmail;
+    private TextView coachNameHeader, coachID, coachFName, coachLName, coachContact, coachEmail, logout;
     private ViewPager mViewPager;
     private ImageView btnID;
     SharedPreferences pref;
@@ -68,6 +69,7 @@ public class ProfileFragment extends Fragment {
         coachContact = (TextView) view.findViewById(R.id.stfContact);
         coachEmail = (TextView) view.findViewById(R.id.stfEmail);
         btnEdit = (ImageView) view.findViewById(R.id.editButton);
+        logout = (TextView) view.findViewById(R.id.txtLogout);
 
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +85,17 @@ public class ProfileFragment extends Fragment {
                 editDetails.putExtra("contactnumber", contactnumber);
                 editDetails.putExtra("email", email);
                 startActivity(editDetails);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences pref = getActivity().getSharedPreferences("sharedPref", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.clear();
+                editor.apply();
+                getActivity().finish();
             }
         });
 
